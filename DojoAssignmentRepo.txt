@@ -1,0 +1,62 @@
+PeterFeltonsMBP:Desktop AdminPower$ cd DojoAssignments/
+PeterFeltonsMBP:DojoAssignments AdminPower$ git init
+Initialized empty Git repository in /Users/AdminPower/Desktop/DojoAssignments/.git/
+PeterFeltonsMBP:DojoAssignments AdminPower$ git add .
+PeterFeltonsMBP:DojoAssignments AdminPower$ git commit -m "Making my DojoAssignments folder a git repository."
+[master (root-commit) 08ba16b] Making my DojoAssignments folder a git repository.
+ 12 files changed, 2 insertions(+)
+ create mode 100644 MEAN/about.txt
+ create mode 100644 Python/about.txt
+ create mode 100644 Ruby/about.txt
+ create mode 100644 WebFundamentals/CSS/about.txt
+ create mode 100644 WebFundamentals/Git/about.txt
+ create mode 100644 WebFundamentals/HTML/about.txt
+ create mode 100644 WebFundamentals/HTML/assignments.txt
+ create mode 100644 WebFundamentals/HTML/indentation.html
+ create mode 100644 WebFundamentals/Javascript/about.txt
+ create mode 100644 WebFundamentals/about.txt
+ create mode 100644 iOS/about.txt
+ create mode 100644 netCore/about.txt
+PeterFeltonsMBP:DojoAssignments AdminPower$ git remote add origin https://github.com/petfelt/DojoAssignments.git
+PeterFeltonsMBP:DojoAssignments AdminPower$ git push -u origin master
+Counting objects: 7, done.
+Delta compression using up to 2 threads.
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (7/7), 663 bytes | 0 bytes/s, done.
+Total 7 (delta 0), reused 0 (delta 0)
+To https://github.com/petfelt/DojoAssignments.git
+ * [new branch]      master -> master
+Branch master set up to track remote branch master from origin.
+PeterFeltonsMBP:DojoAssignments AdminPower$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+nothing to commit, working tree clean
+PeterFeltonsMBP:DojoAssignments AdminPower$ touch readme.md
+PeterFeltonsMBP:DojoAssignments AdminPower$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	readme.md
+
+nothing added to commit but untracked files present (use "git add" to track)
+PeterFeltonsMBP:DojoAssignments AdminPower$ gid add .
+-bash: gid: command not found
+PeterFeltonsMBP:DojoAssignments AdminPower$ git add .
+PeterFeltonsMBP:DojoAssignments AdminPower$ git commit -m "added readme.md"
+[master 3f00450] added readme.md
+ 1 file changed, 2 insertions(+)
+ create mode 100644 readme.md
+PeterFeltonsMBP:DojoAssignments AdminPower$ git push -u origin master
+Counting objects: 3, done.
+Delta compression using up to 2 threads.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 360 bytes | 0 bytes/s, done.
+Total 3 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local objects.
+To https://github.com/petfelt/DojoAssignments.git
+   08ba16b..3f00450  master -> master
+Branch master set up to track remote branch master from origin.
+PeterFeltonsMBP:DojoAssignments AdminPower$ touch DojoAssignmentRepo.txt
+
