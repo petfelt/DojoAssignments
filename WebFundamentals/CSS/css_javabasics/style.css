@@ -1,0 +1,119 @@
+/*CSS reset settings here*/
+*{
+ margin: 0px;
+ padding: 0px;
+ font-size: 33px;
+ color:rgb(181, 202, 230);
+}
+a{
+  color: rgb(56, 244, 244);
+}
+a:hover{
+  text-decoration:none;
+}
+span:hover{
+  text-decoration: none;
+}
+li{
+  color:rgb(181, 202, 230);
+  font-size: 35px;
+}
+ul{
+  list-style-type: disc;
+}
+.uldisc{
+  list-style-type: circle;
+}
+#wrapper{
+ margin: 25px;
+ width: 2500px;
+ height: 1585px;
+ background-color: rgb(13, 60, 135);
+ display:inline-block;
+}
+#header{
+ margin: 25px;
+ height: 225px;
+ background-color: rgb(216, 28, 28);
+ border-radius: 50px; /* Adds curved corners.*/
+ /*rgb(181, 202, 230);   <-- Text color*/
+}
+.headercenter{
+  margin-left: 50px;
+  padding-top: 75px;
+  height: 72px;
+  /*outline: red solid 1px;*/
+}
+.headertext{
+  font-size: 72px;
+}
+#navigation{
+ margin-left: 25px;
+ margin-right: 25px;
+ height: 500px;
+ width: 450px;
+ background-color: rgb(13, 135, 118);
+ border-radius: 50px;
+ display: inline-block;
+ vertical-align: top;
+}
+.navsubcontents{
+  margin: 25px;
+  display: inline-block;
+  height: 30px;
+  width: 370px;
+  /*outline: red solid 1px;*/
+}
+.list1{
+  padding-left: 40px;
+  /*outline: red solid 1px;*/
+}
+.list2{
+  padding-left: 80px;
+  /*outline: red solid 1px;*/
+}
+#main_content{
+ padding-left: 15px;
+ height: 1100px;
+ width: 1950px;
+ background-color: rgb(17, 23, 33);
+ display: inline-block;
+ border-radius: 50px;
+}
+.subcontents{
+ margin: 25px;
+ display: inline-block;
+ height: 1030px;
+ width: 1900px;
+ /*outline: #00FF00 solid 1px;*/
+}
+.headertext2{
+  padding-top: 50px;
+  font-size: 55px;
+}
+.spacer{
+  padding-top: 20px;
+}
+.links{
+  color: rgb(56, 244, 244);
+  text-decoration: underline;
+}
+.normtext{
+  color:rgb(181, 202, 230);
+}
+.specialtext{
+  color:rgb(121, 112, 249);
+}
+#advertisement{
+ margin-left: 25px;
+ margin-top: 50px;
+ height: 140px;
+ width: 2450px;
+ background-color: rgb(120, 120, 120);
+ border-radius: 50px;
+}
+.advertisementcenter{
+  margin-left: 50px;
+  padding-top: 50px;
+  height: 33px;
+}
