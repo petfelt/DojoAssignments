@@ -2,54 +2,121 @@
 <html lang="en">
   <head>
     <title>Python Clone</title>
+    <meta charset="utf-8"/>
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
 
     <div id="wrapper">
-      <div id="imageheader"></div>
-      <div id="textsizeheader"></div>
-      <div id="searchbar"></div>
-      <div id="realheader"></div>
+      <div id="header">
+        <div id="imageheader">
+          <img src="python.png" alt="Python Logo" style="width:300px;height:90px;">
+        </div>
+        <div id="textsizeheader">
+          <p>Text Size: <a href="#" class="textsizelinktext">Normal</a><span id=textsizeline> | </span>
+            <a href="#" class="textsizelinktext">Large</a>
+          </p>
+        </div>
+        <div id="searchbar"></div>
+        <div id="searchsquare">
+          <input type="text" name="search" id="searchbox" placeholder="Search">
+        </div>
+        <div id="gosquare">
+          <div id="textbuttonalign">
+            <a id="gotext">GO</a>
+          </div>
+        </div>
+      </div>
+      <div id="realheader">
+        <div id="navbar">
+          <p class="bannertext">&nbsp;&nbsp;&nbsp;About</p><p class="bannertext">Downloads&nbsp;</p>
+          <p class="bannertext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Documentation</p>
+          <p class="bannertext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Community</p>
+          <p class="bannertext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;News</p>
+          <p class="bannertext">&nbsp;&nbsp;&nbsp;Events</p>
+        </div>
+      </div>
 
       <div id="betweenheaderwhite">
-        <div class="uppercontainer"> <!--White links on left side of page.-->
-          <div class="whitelink"></div>
-          <div class="whitelink"></div>
-          <div class="whitelink"></div>
-          <div class="whitelink"></div>
-          <div class="whitelink"></div>
-          <div class="whitelink"></div>
-          <div class="whitelink"></div>
+        <div class="leftuppercontainer"> <!--White links on left side of page.-->
+          <div class="whitelink">
+            <span class="yellowbullets">» </span><a href="#" class="whitelink"> Docs</a>
+          </div>
+          <div class="whitelink">
+            <span class="yellowbullets">» </span><a href="#" class="whitelink"> Audio/Visual Talks</a>
+          </div>
+          <div class="whitelink">
+            <span class="yellowbullets">» </span><a href="#" class="whitelink">Beginner's Guide</a>
+          </div>
+          <div class="whitelink">
+            <span class="yellowbullets">» </span><a href="#" class="whitelink">Developer's Guide</a>
+          </div>
+          <div class="whitelink">
+            <span class="yellowbullets">» </span><a href="#" class="whitelink">PEP Index</a>
+          </div>
+          <div class="whitelink">
+            <span class="yellowbullets">» </span><a href="#" class="whitelink">Python Books</a>
+          </div>
+          <div class="whitelink">
+            <span class="yellowbullets">» </span><a href="#" class="whitelink">FAQ</a>
+          </div>
         </div>
 
-        <div class="uppercontainer"> <!--Quote text and such -->
-          <div id="whitetext"></div>
-          <div id="yellowquotetext"></div>
-          <div id="zenpython"></div>
+        <div class="rightuppercontainer"> <!--Quote text and such -->
+          <div id="whitetext">
+            First appearing in 1991, Python is a general-purpose, high-level, interpreted programming
+            language whose design focus emphasizes code readability, Whether for processing/analyzing&nbsp;
+            data to powering many well-known applications, Python is not only a great language for new
+            programmers but also powerful enough for seasoned developers building whatever they can think of.
+          </div>
+          <div id="yellowquotetext">
+            <span>Beautiful is better than ugly;</span>
+              <span>Explicit is better than implicit;</span>
+              <span>Simple is better than complex;</span>
+              <span>Complex is better than complicated;</span>
+              <span>Readability counts;</span>
+          </div>
+          <div id="zenpython">The Zen of Python</div>
         </div>
       </div>
 
 
       <div id="whiteline">
+        <div id="subline"><div class="sublinetopper"><div class="sublinesplit"></div></div></div>
         <div class="whitelinetext">
-          <div class="lineandheader"></div>
-          <div class="textblock"></div>
-          <div class="textblocklist"></div>
+          <div class="whiteheader">Getting Started</div>
+          <div class="textblock">Python can be easy to pick up whether you're a first time programmer or
+          you're experienced with other languages. The following pages are a useful first step to get on
+          your way writing programs with Python!</div>
+          <ul class="textblocklist">
+            <li><a class=speciallinktext>Beginner's Guide, Programmers</a></li>
+            <li><a class=speciallinktext>Beginner's Guide, Non-Programmers</a></li>
+            <li><a class=speciallinktext>Code sample and snippets for&nbsp;&nbsp;&nbsp;&nbsp; Beginners</a></li>
+          </ul>
+          <br><br>
         </div>  <!--Two of these because two blocks of text-->
-        <div class="whitelinetext">
-          <div class="lineandheader"></div>
-          <div class="textblock"></div>
-          <div class="textblocklist"></div>
+        <div class="whitelinetextright">
+          <div class="whiteheaderright">Applications&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+          <div class="textblockright">The <span class=specialtext2>Python Packing Index (PyPl)</span> hosts thousands of third-party modules
+          for Python. Both Python's standard library and the community-&nbsp;&nbsp;&nbsp; contributed modules allow for endless
+          possibilities.</div>
+          <ul class="textblocklistright">
+            <li><a class=speciallinktext>Web and Internet Development</a></li>
+            <li><a class=speciallinktext>Database Access</a></li>
+            <li><a class=speciallinktext>Desktop GUIs</a></li>
+            <li><a class=speciallinktext>Network Programming</a></li>
+            <li><a class=speciallinktext>Software and Game Development</a></li>
+          </ul>
         </div>
       </div>
 
 
       <div id="footer">
-        <div class="footerlink"></div>
-        <div class="footerlink"></div>
-        <div class="footerlink"></div>
-        <div id="Copycorrect"></div>
+        <div class="footerspacer"></div>
+        <div class="footerlink">Help and General Contact</div>
+        <div class="footerlink">Diversity Initiatives</div>
+        <div class="footerlink">Submit Website Bugs</div>
+        <div id="copycorrect">Copyright ©2001-2016.</div>
       </div>
 
 

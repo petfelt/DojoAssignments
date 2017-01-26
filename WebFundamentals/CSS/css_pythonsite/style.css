@@ -2,85 +2,366 @@
 *{
  margin: 0px;
  padding: 0px;
- font-size: 14px;
+ font-size: 12px;
+ font-family: Arial;
  color:rgb(255, 255, 255);
+}
+
+a:hover {
+  text-decoration:none;
+}
+
+.textsizelinktext {
+  color: rgb(169,154,55);
+}
+
+#textsizeline {
+  color: black;
 }
 
 #wrapper {
   width: 850px;
   height: 710px;
-  background-color: rgb(47, 82, 145);
-  display:inline-block;
+  background-color: rgb(38,81,117);
+}
+
+#header {
+  width: 850px;
+  height: 90px;
+  /*outline: red solid 1px;*/
 }
 
 #imageheader {
-
+  padding-left: 15px;
+  padding-top: 3px;
+  width: 285px;
+  height: 87px;
+  display:inline-block;
+  /*outline: green solid 1px;*/
 }
 
 #textsizeheader {
-
+  position:absolute;
+  display:inline-block;
+  margin-left:260px;
+  padding-left: 100px;
+  padding-top: 8px;
+  width: 200px;
+  height: 20px;
+  /*outline: green solid 1px;*/
 }
 
 #searchbar {
+  position: absolute;
+  display: inline-block;
+  margin-left: 250px;
+  margin-top: 25px;
+  width: 300px;
+  height: 65px;
+  /*outline: green solid 1px;*/
+}
 
+#searchsquare {
+  position: absolute;
+  display: inline-block;
+  margin-left: 290px;
+  margin-top: 25px;
+  width: 250px;
+  height: 50px;
+  background-color: rgb(68,68,68);
+  border-radius: 10px;
+  box-shadow: 1px 1px 3px rgb(12,12,12);
+  /*outline: green solid 1px;*/
+}
+
+#searchbox {
+  position: absolute;
+  display: inline-block;
+  margin-left: 35px;
+  margin-top: 10px;
+  width: 125px;
+  height: 25px;
+  text-align:center;
+  font-size: 10px;
+  color: black;
+  box-shadow: 1px 1px 1px rgb(0,0,0);
+}
+
+#gosquare {
+  position: absolute;
+  display: inline-block;
+  margin-left: 465px;
+  margin-top: 37px;
+  width: 35px;
+  height: 25px;
+  background-color: rgb(38,81,117);
+  border-radius: 5px;
+  box-shadow: inset 2px 2px 0px rgb(200,200,200), inset -2px -2px 0px rgb(100,100,100), 1px 1px 1px rgb(15,15,15);
+}
+
+#textbuttonalign {
+  margin-top: 5px;
+  margin-left: 9px;
+}
+
+#gotext {
+  font-size: 11px;
 }
 
 #realheader {
+  width: 850px;
+  height: 70px;
+  /*outline: red solid 1px;*/
+}
 
+#navbar {
+  position: absolute;
+  display: inline-block;
+  margin-left: 60px;
+  margin-top: 15px;
+  width: 760px;
+  height: 40px;
+  background-color: rgb(66,123,171);
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px rgb(12,12,12);
+}
+
+.bannertext {
+  display: inline-block;
+  margin-left: 0px;
+  margin-top: 8px;
+  width: 120px;
+  height: 30px;
+  /*outline: green solid 1px;*/
+  font-size: 18px;
+  color: white;
+  text-align: center;
 }
 
 #betweenheaderwhite {
-
+  width: 850px;
+  height: 260px;
+  /*outline: red solid 1px;*/
 }
 
-.uppercontainer {
+.leftuppercontainer {
+  padding-top: 10px;
+  padding-left: 70px;
+  width: 170px;
+  height: 250px;
+  /*outline: red solid 1px;*/
+}
 
+.yellowbullets {
+  text-decoration: none;
+  color: rgb(200,185,103);
 }
 
 .whitelink {
+  padding-top: 4px;
+  width:inherit;
+  height: 23px;
+  font-size: 14px;
+  text-align: center;
+  /*outline: red solid 1px;*/
+}
 
+.rightuppercontainer {
+  position:absolute;
+  display:inline-block;
+  margin-left: 250px;
+  margin-top: -260px;
+  width: 570px;
+  height: 260px;
+  /*outline: blue solid 1px;*/
 }
 
 #whitetext {
-
+  padding-top: 3px;
+  width: inherit;
+  height: 75px;
+  font-size: 13px;
+  text-align: center;
+  /*outline: red solid 1px;*/
 }
 
 #yellowquotetext {
+  padding-top: 3px;
+  width:inherit;
+  height: 140px;
+  font-style: italic;
+  text-align: center;
+  /*outline: red solid 1px;*/
+}
 
+#yellowquotetext span {
+  padding-top: 7px;
+  font-size: 17px;
+  color: rgb(210,195,113);
+  display: block;
 }
 
 #zenpython {
-
+  padding-top: 4px;
+  width:inherit;
+  height: 36px;
+  text-align: center;
+  font-size: 15px;
+  /*outline: red solid 1px;*/
 }
 
 #whiteline {
-
+  width: 850px;
+  height: 200px;
+  background-color: white;
+  box-shadow: -1px -1px 1px rgb(0, 0, 0);
+  /*outline: blue solid 1px;*/
 }
 
 .whitelinetext {
-
+  display: inline-block;
+  width: 423px;
+  height: 200px;
+  /*outline: blue solid 1px;*/
 }
 
-.lineandheader {
+.whitelinetextright {
+  display: inline-block;
+  width: 423px;
+  height: 200px;
+  /*outline: blue solid 1px;*/
+}
 
+#subline {
+  margin-left: 70px;
+  padding-top: 9px;
+  width: 736px;
+  height: 4px;
+  background-color: rgb(117,168,211);
+}
+
+.sublinesplit {
+  height: 18px;
+  margin-top: -9px;
+  margin-left: 347px;
+  width: 25px;
+  background-color: white;
+}
+
+.sublinetopper {
+  height: 8px;
+  margin-top: -9px;
+  width: 736px;
+  background-color: white;
+}
+
+.whiteheader {
+  display: inline-block;
+  padding-top: 3px;
+  width: inherit;
+  height: 25px;
+  /*outline: red solid 1px;*/
+  font-size: 15px;
+  text-align: center;
+  color: black;
+}
+
+.whiteheaderright {
+  padding-top: 3px;
+  width: inherit;
+  height: 25px;
+  /*outline: red solid 1px;*/
+  font-size: 15px;
+  text-align: center;
+  color: black;
 }
 
 .textblock {
-
+  margin-left: 85px;
+  width: 250px;
+  height: 70px;
+  text-align: center;
+  color:black;
+  /*outline: red solid 1px;*/
 }
 
 .textblocklist {
+  margin-left: 100px;
+  width: 230px;
+  height: 40px;
+  color:rgb(117,168,211);
+  list-style-type: square;
+  text-align: center;
+  /*outline: red solid 1px;*/
+}
 
+.textblocklist li {
+  color: black;
+}
+
+.textblockright {
+  margin-left: 40px;
+  width: 260px;
+  height: 70px;
+  text-align: center;
+  color:black;
+  /*outline: red solid 1px;*/
+}
+
+.specialtext2 {
+  font-size: 10px;
+  color:rgb(117,168,211);
+}
+
+.speciallinktext {
+  color:rgb(117,168,211);
+}
+
+.textblocklistright {
+  margin-left: 60px;
+  width: 230px;
+  height: 40px;
+  color:black;
+  list-style-type: square;
+  text-align: center;
+  /*outline: red solid 1px;*/
+}
+
+.textblocklistright li {
+  color:black;
 }
 
 #footer {
+  width: 850px;
+  height: 90px;
+  /*outline: magenta solid 1px;*/
+}
 
+.footerspacer {
+  display: inline-block;
+  width: 180px;
+  height: 70px;
+  /*outline: magenta solid 1px;*/
 }
 
 .footerlink {
-
+  vertical-align: top;
+  padding-top: 50px;
+  display: inline-block;
+  width: 170px;
+  height: 20px;
+  text-align: center;
+  color: rgb(137,188,231);
+  font-size: 14px;
+  /*outline: magenta solid 1px;*/
 }
 
 #copycorrect {
-
+  padding-top: 3px;
+  width: 850px;
+  height: 15px;
+  color: rgb(137,188,231);
+  text-align: center;
+  font-size: 10px;
+  /*outline: hotpink solid 1px;*/
 }

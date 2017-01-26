@@ -36,7 +36,6 @@ ul{
  height: 225px;
  background-color: rgb(216, 28, 28);
  border-radius: 50px; /* Adds curved corners.*/
- /*rgb(181, 202, 230);   <-- Text color*/
 }
 .headercenter{
   margin-left: 50px;
@@ -44,7 +43,7 @@ ul{
   height: 72px;
   /*outline: red solid 1px;*/
 }
-.headertext{
+.headercenter h1{
   font-size: 72px;
 }
 #navigation{
