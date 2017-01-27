@@ -1,0 +1,204 @@
+/*CSS reset settings here*/
+*{
+ margin: 0px;
+ padding: 0px;
+ font-family: Arial;
+ color: black;
+}
+
+.deleteme {
+  margin-left: 6px;
+  position: absolute;
+  opacity: 0.5;
+}
+
+.bluetext1 {
+  color:rgb(38,102,156);
+}
+
+.bluetext2 {
+  color:rgb(49,170,188);
+}
+
+#bluetext3 {
+  color:rgb(79,205,224);
+}
+
+#wrapper {
+  margin-left: 110px;
+  height: 793px;
+  width: 940px;
+  background-color: white;
+  /*outline: black solid 1px;*/
+}
+
+/* HEADER START */
+
+#header {
+  height: 136px;
+  width:inherit;
+  /*outline: black solid 1px;*/
+}
+
+#topimg {
+  position: relative;
+  margin-top: -83px;
+}
+
+#titletext {
+  position: absolute;
+  margin-top: -55px;
+  font-size: 47px;
+}
+
+#headerbar {
+  display: inline-block;
+  margin-top: 77px;
+  height: 59px;
+  width: inherit;
+  background: rgb(192,192,192); /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(rgb(195,195,195), rgb(135,132,145), rgb(195,195,195)); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(rgb(195,195,195), rgb(135,132,145), rgb(195,195,195)); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(rgb(195,195,195), rgb(135,132,145), rgb(195,195,195)); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(rgb(40,103,157), rgb(81,130,170), rgb(40,103,157)); /* Standard syntax */
+}
+
+#headertext {
+  position: absolute;
+  margin-top: 12px;
+  margin-left: -80px;
+  font-size: 31px;
+  color: white;
+}
+
+/* HEADER END */
+
+/* MAIN CONTENT START */
+#maincontent {
+  height: 657px;
+  width: 940px;
+}
+
+/*
+#maingradient {
+  position: absolute;
+  background: white;
+  background: -webkit-linear-gradient(rgb(195,195,195), rgb(135,132,145), rgb(195,195,195));
+  background: -o-linear-gradient(rgb(195,195,195), rgb(135,132,145), rgb(195,195,195));
+  background: -moz-linear-gradient(rgb(195,195,195), rgb(135,132,145), rgb(195,195,195));
+  background: linear-gradient(rgb(227,227,227), white);
+  height: 130px;
+  width: inherit;
+}*/
+
+/* SIDEBAR START */
+#sidebar {
+  height: inherit;
+  width: 240px;
+  /*outline: black solid 1px;*/
+}
+
+#sidebartitle {
+  position: absolute;
+  margin-top: 24px;
+  margin-left: 3px;
+  font-size: 17px;
+}
+
+#sidebartext {
+  position: absolute;
+  font-size: 14px;
+  margin-top: 52px;
+  margin-left: 3px;
+  width: 190px;
+}
+
+#button1 {
+  position: absolute;
+  margin-top: 118px;
+  margin-left: 5px;
+  width: 187px;
+  height: 35px;
+  text-align: center;
+  font-size: 16px;
+  color: white;
+  border-radius: 7px;
+  border-width: 0px;
+  background: rgb(92,114,152); /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(rgb(91,145,187), rgb(92,114,152)); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(rgb(91,145,187), rgb(92,114,152)); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(rgb(91,145,187), rgb(92,114,152)); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(rgb(91,145,187), rgb(92,114,152)); /* Standard syntax */
+  box-shadow: 1px 1px 3px rgb(100,100,100);
+}
+
+#button2 {
+  position: absolute;
+  margin-top: 157px;
+  margin-left: 5px;
+  width: 187px;
+  height: 35px;
+  text-align: center;
+  font-size: 16px;
+  color: white;
+  border-radius: 5px;
+  border-width: 0px;
+  background: rgb(237,114,1); /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(rgb(233,169,90), rgb(237,114,1)); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(rgb(233,169,90), rgb(237,114,1)); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(rgb(233,169,90), rgb(237,114,1)); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(rgb(233,169,90), rgb(237,114,1)); /* Standard syntax */
+  box-shadow: 1px 1px 3px rgb(100,100,100);
+}
+
+#button3 {
+  position: absolute;
+  margin-top: 480px;
+  margin-left: 20px;
+  width: 160px;
+  height: 30px;
+  text-align: center;
+  font-size: 16px;
+  color: white;
+  border-radius: 5px;
+  border-width: 0px;
+  background: rgb(20,194,221); /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(rgb(116,207,222), rgb(20,194,221)); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(rgb(116,207,222), rgb(20,194,221)); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(rgb(116,207,222), rgb(20,194,221)); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(rgb(126,217,232), rgb(20,194,221)); /* Standard syntax */
+  box-shadow: 1px 1px 3px rgb(100,100,100);
+}
+
+#sidebargreyline {
+  position: absolute;
+  margin-top: 216px;
+  margin-left: 2px;
+  width: 198px;
+  height: 1px;
+  background-color: grey;
+}
+
+#adimg1 {
+  position: absolute;
+  margin-top: 244px;
+  margin-left: 4px;
+}
+
+#adimg2 {
+  position: absolute;
+  margin-top: 346px;
+  margin-left: 54px;
+}
+
+#adtext {
+  position: absolute;
+  width: 200px;
+  margin-top: 263px;
+  font-size: 24px;
+  text-align: center;
+  color: white;
+}
+/* SIDEBAR FINISH */
+
+/* SUBCONTENT START */
