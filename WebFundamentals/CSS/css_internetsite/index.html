@@ -6,20 +6,21 @@
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
-    <!-- DELETE IMAGE BELOW. -->
-    <img src="images/the-internet-PPC.png" class="deleteme" alt="background" style="width:1156px;height:793px;">
+    <!-- Image commented out - used as outline for project -->
+    <!-- <img src="images/the-internet-PPC.png" class="deleteme" alt="background" style="width:1156px;height:793px;"> -->
 
     <div id="wrapper">
 
-      <div id="header">
-        <div id="headerbar">
-          <img src="images/globe.png" id="topimg" alt="Globe Icon" style="width:100px;height:100px;">
-          <a id="titletext">The Inter<span class="bluetext1">net</span></a>
-          <a id="headertext">The World Wide Web</a></div>
+
+      <div id="headerbar">
+        <img src="images/globe.png" id="topimg" alt="Globe Icon" style="width:100px;height:100px;">
+        <a id="titletext">The Inter<span class="bluetext1">net</span></a>
+        <a id="headertext">The World Wide Web</a>
       </div>
 
+
       <div id="maincontent">
-        <div id="maingradient"></div>
+        <a id="maingradient"></a>
 
         <div id="sidebar">
           <p id="sidebartitle">So, what's an <span style="color:rgb(216,34,35)">Internet?</span></p>
@@ -30,17 +31,60 @@
           <img src="images/ad_background.png" id="adimg1" alt="Vertical Binary Code" style="width:196px;height:296px;">
           <img src="images/ninja.png" id="adimg2" alt="Little Ninja Dude" style="width:85px;height:120px;">
           <button type="button" id="button3" onclick="alert('Subscribe to The Internet for more information.')">Learn More &#8250;&#8250;&#8250;</button>
-          <p id="adtext">Reinvent your career in just 14 weeks</p>
+          <a id="adtext">Reinvent your career in just 14 weeks</a>
         </div>
 
         <div id="subcontent">
-          <div id="secondheader"></div>
-          <div id="textblock1"></div>
-          <!-- image here -->
-          <div id="textblock2"></div>
-          <!-- another image here -->
-        </div>
 
+          <div id="subheader">
+            <a id="subheadertitle">&nbsp;DNS</a>
+            <a id="subnumber">855.967.3787</a>
+            <p id="subtext">Mon - Fri 9 a.m. - 5 p.m. (EST)</p>
+            <p id="subtext2">International +1.617.963.0555</p>
+            <a id="subgreyline"></a>
+          </div>
+
+          <h3 class="bluetext1">Clients and Servers</h3>
+          <a class="computersconnected">Computers connected to the <span class="bluetext2">Web</span> are called <b>clients</b> and <b>servers</b>.</a>
+
+          <ul class="computersconnected">
+            <li><span class="bluetext2">Clients</span> are the typical Web user's Internet-connected devices
+              (for example, your computer connected to your Wi-Fi, or your phone connected to your mobile network) and
+              <span class="bluetext2">Web-accessing software</span> available on those devices (usually a web browser like
+              Firefox or Chrome).</li>
+              <li><span class="bluetext2">Servers</span> are computers that store <span class="bluetext2">webpages</span>,
+                <span class="bluetext2">sites</span>, or <span class="bluetext2">apps</span>. When a client device wants to access
+                a webpage, a copy of the webpage is downloaded from the server onto the client machine to be displayed in the user's
+                web browser.</li>
+          </ul>
+
+          <img src="images/client_server.jpg" id="clientservimg" alt="Client To Server" style="width:270px;height:98px;">
+
+          <h3 class="bluetext1">So What Actually Happens?</h3>
+
+          <ol class="computersconnected">
+            <li>The browser goes to the <span class="bluetext2">DNS Server</span> and finds the real address of the <span class="bluetext2">server</span>
+            that the website lives on.</li>
+            <li>The browser sends an <span class="bluetext2">HTTP request</span> message to the server asking it to send a copy of the website
+              to the client.</li>
+            <li>If the server approves the client's request, the server sends the client a
+              <span class="bluetext2">"200 OK" message</span>, which means "Permission granted! Here you go!", and then
+            starts sending the website's files to the browser as a series of small chunks.</li>
+            <li>The browser assembles the small chunks into a complete website and displays it to you!</li>
+          </ol>
+
+
+          <div id="footer">
+            <img src="images/html.png" id="bigthreeimg" alt="The Big 3" style="width:105px;height:98px;">
+            <h3 class="bluetext1 footertext">The Big 3 - HTML, CSS, JavaScript</h3>
+            <p class="computersconnected footertext">While the server can process information in many different languages, the files
+            that they server to the client are <i>always</i> going to be some combination of HTML, CSS, and JavaScript!</p>
+            <p class="computersconnected footertext">Learn more about the Big 3 <span class="bluetext2">here</span>!</p>
+            <a id="bordercover"></a>
+          </div>
+
+
+        </div>
       </div>
     </div>
   </body>
