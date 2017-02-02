@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Contact Cards</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript">
+
+      var cardnum = -1;
+
+      function attach_handlers(num) {
+        $(document).on('click', '#card'+num, function(){
+          $('#d'+num).toggle();
+          $('#p'+num).toggle();
+          $('#c'+num).toggle();
+        });
+        $(document).on('click', '#p'+num, function(){
+          $('#d'+num).toggle();
+          $('#p'+num).toggle();
+          $('#c'+num).toggle();
+        });
+        $(document).on('click', '#c'+num, function(){
+          $('#d'+num).toggle();
+          $('#p'+num).toggle();
+          $('#c'+num).toggle();
+        });
+        $(document).on('click', '#d'+num, function(){
+          $('#d'+num).toggle();
+          $('#p'+num).toggle();
+          $('#c'+num).toggle();
+        });
+        // $(contacter).on('click', function(){
+        //   // alert("check: " + contacter);
+        //   console.log("check: " + $(contacter).find('.person'));
+        //   $(this).find('a.person').css('background-color','green');
+        // });
+      }
+
+      $(document).ready(function(){
+
+
+        $('form').submit(function(){
+          // console.log($('#fn').val());
+          // console.log($('#ln').val());
+          // console.log($('#des').val());
+          cardnum++;
+          $('p').append('<div class="contactcard" id="card'+cardnum+'">');
+          $('p').append('<a class="description" id="d'+cardnum+'">'+$('#des').val()+'</a>');
+          $('p').append('<a class="person" id="p'+cardnum+'">'+$('#fn').val()+' '+$('#ln').val()+'</a>');
+          $('p').append('<a class="clickdescription" id="c'+cardnum+'">Click for description!</a>');
+          $('p').append('</div>');
+          attach_handlers(cardnum);
+          return false
+        });
+
+
+
+      });
+    </script>
+    <style type="text/css">
+      * {
+        font-family: Times;
+      }
+
+      th {
+        padding-right: 50px;
+        border-width: 0px;
+        border-bottom-width: 1px;
+      }
+    td {
+      border-width: 0px;
+      border-bottom-width: 1px;
+    }
+
+    form {
+      width: 30%;
+      display: inline-block;
+    }
+
+    input {
+      margin-bottom: 5px;
+    }
+
+    #titleline {
+      vertical-align: top;
+      position: absolute;
+      display: inline-block;
+      width:29.75%;
+      height: 2px;
+      margin-top: -25px;
+      background: grey;
+    }
+
+    #des {
+      width: 200px;
+    }
+
+    #rightside {
+      position: absolute;
+      display: inline-block;
+      width: 30%;
+      margin-left: 10%;
+
+    }
+
+    .contactcard {
+      display:inline-block;
+      vertical-align: top;
+      text-align: center;
+      width: 100%;
+      height: 125px;
+      margin-bottom: 15px;
+      outline: lightgrey solid 2px;
+    }
+
+    .person{
+      position: absolute;
+      margin-left: -100%;
+      display: inline-block;
+      width:100%;
+      font-size: 25px;
+      text-align: center;
+      margin-top: 35px;
+    }
+
+    .clickdescription {
+      position: absolute;
+      margin-left: -100%;
+      display: inline-block;
+      width:100%;
+      font-size: 14px;
+      text-align: center;
+      margin-top: 100px;
+    }
+
+    .description {
+      position: absolute;
+      display: none;
+      width:100%;
+      font-size: 16px;
+      text-align: center;
+      margin-left: -100%;
+      margin-top: 10px;
+    }
+
+
+    </style>
+  </head>
+  <body>
+    <form>
+      <h1><b>Add A Contact</b></h1>
+      <a id="titleline"></a>
+      <div align="right">
+        First Name: <input id="fn" type="text" name="firstname" value="First Name"><br>
+        Last Name: <input id="ln" type="text" name="lastname" value="Last Name"><br>
+        Description: <input id="des" type="text" value="Enter Description"><br><br>
+        <input type="submit" value=" Add User ">
+      </div>
+    </form>
+
+    <p id="rightside">
+      <!-- Dynamic content here -->
+
+    </p>
+  </body>
+</html>

@@ -16,12 +16,13 @@
       $(document).ready(function(){
 
         $('form').submit(function(){
-          console.log($('input').attr(name));
-          $('tr').last().append("<td></td>");
-          $('tr').last().append("<td></td>");
-          $('tr').last().append("<td></td>");
-          $('tr').last().append("<td></td>");
-          // alert("you are submitting a form!");
+          console.log($('#fn').val());
+          $('table tbody').append("<tr>");
+          $('table tbody').append("<td>"+$('#fn').val()+"</td>");
+          $('table tbody').append("<td>"+$('#ln').val()+"</td>");
+          $('table tbody').append("<td>"+$('#ea').val()+"</td>");
+          $('table tbody').append("<td>"+$('#cn').val()+"</td>");
+          $('table tbody').append("</tr>");
           return false
         });
 
@@ -32,26 +33,30 @@
   </head>
   <body>
     <table border="1">
-      <tr>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Email Address</th>
-        <th>Contact #</th>
-      </tr>
-      <tr>
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email Address</th>
+          <th>Contact #</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Dynamic content here -->
+      </tbody>
 
-      </tr>
+
     </table>
 
     <form>
       <h1><b>Add User</b></h1>
       <a id="titleline"></a>
       <div align="right">
-        First Name: <input type="text" name="firstname" value="First Name"><br>
-        Last Name: <input type="text" name="lastname" value="Last Name"><br>
-        Email Address: <input type="text" name="email" value="Email Address"><br>
-        Contact No.: <input type="text" name="contact" value="Phone #"><br><br>
-        <input type="submit" value="Add User ">
+        First Name: <input id="fn" type="text" name="firstname" value="First Name"><br>
+        Last Name: <input id="ln" type="text" name="lastname" value="Last Name"><br>
+        Email Address: <input id="ea" type="text" name="email" value="Email Address"><br>
+        Contact No.: <input id="cn" type="text" name="contact" value="Phone #"><br><br>
+        <input type="submit" value=" Add User ">
       </div>
     </form>
   </body>
