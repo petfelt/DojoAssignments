@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>jQuery Functions</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    </script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+      var datapoint = "N/A: You haven't clicked a button yet";
+      var dataclick = false;
+      $(".clickdemo").click(function(){
+        var text = $(".clickdemo").text();
+        alert(text);
+        // Data Demo code
+        datapoint = "The Click Demo Button";
+        dataclick = false;
+      });
+      $(".clickdemoreset").click(function(){
+        $("p").html('Example Text'); // Change this text to include that text.
+        $("p").show();
+        $("button .clickdemo").addClass("changeColor");
+        // Data Demo code
+        datapoint = "The Reset Button";
+        dataclick = false;
+      });
+      $(".hidedemo").click(function(){
+        $("p").hide();
+        // Data Demo code
+        datapoint = "The Hide Demo Button";
+        dataclick = false;
+      });
+      $(".showdemo").click(function(){
+        $("p").show();
+        // Data Demo code
+        datapoint = "The Show Demo Button";
+        dataclick = false;
+      });
+      $(".toggledemo").click(function(){
+        $("p").toggle();
+        // Data Demo code
+        datapoint = "The Toggle Demo Button";
+        dataclick = false;
+      });
+      $(".slidedowndemo").click(function(){
+        $("p").slideDown();
+        // Data Demo code
+        datapoint = "The SlideDown Demo Button";
+        dataclick = false;
+      });
+      $(".slideupdemo").click(function(){
+        $("p").slideUp();
+        // Data Demo code
+        datapoint = "The SlideUp Demo Button";
+        dataclick = false;
+      });
+      $(".slidetoggledemo").click(function(){
+        $("p").slideToggle();
+        // Data Demo code
+        datapoint = "The SlideToggle Demo Button";
+        dataclick = false;
+      });
+      $(".fadeindemo").click(function(){
+        $("p").fadeIn("slow");
+        // Data Demo code
+        datapoint = "The FadeIn Demo Button";
+        dataclick = false;
+      });
+      $(".fadeoutdemo").click(function(){
+        $("p").fadeOut("slow");
+        // Data Demo code
+        datapoint = "The FadeOut Demo Button";
+        dataclick = false;
+      });
+      $(".addclassdemo").click(function(){
+        $("p").addClass("changeColor");
+        // Data Demo code
+        datapoint = "The AddClass Demo Button";
+        dataclick = false;
+      });
+      $(".beforedemo").click(function(){
+        $("p").before("<b>BEFORE</b>");
+        // Data Demo code
+        datapoint = "The Before Demo Button";
+        dataclick = false;
+      });
+      $(".afterdemo").click(function(){
+        $("p").after("<b><i>AFTER</i></b>");
+        // Data Demo code
+        datapoint = "The After Demo Button";
+        dataclick = false;
+      });
+      $(".appenddemo").click(function(){
+        $("p").append(" Also look!<i> An extra Appendage!</i>");
+        // Data Demo code
+        datapoint = "The Append Demo Button";
+        dataclick = false;
+      });
+      $(".htmldemo").click(function(){
+        $("p").html( "<span class='changeColor2'>I HAVE <i>TRANSFORMED!</i></span>" );
+        // Data Demo code
+        datapoint = "The HTML Demo Button";
+        dataclick = false;
+      });
+      $(".attrdemo").click(function(){
+        var clickAttr = $("em").attr("title"); // Click button is the only one with an <em> tag.
+        $(".attrdemo").text("The <em> title Attribute that's inside the Click button = "+clickAttr); // Change text of attr button to describe it.
+        // Data Demo code
+        datapoint = "The Attr Demo Button";
+        dataclick = false;
+      });
+
+      $(".valdemo").click(function(){
+        var textboxVal = $(".valTextbox").val(); // Grabs value from textbox.
+        $(".valdemo").text("The Val demo textbox val = "+textboxVal); // Change this text to have the value attached.
+        // Data Demo code
+        datapoint = "The Val Demo Button";
+        dataclick = false;
+      });
+
+      $(".textdemo").click(function(){
+        var clickButtonTxt = $("p").first().text(); // Removes all html formatting from text as well.
+        $(".textdemo").text("The p text currently is: "+clickButtonTxt); // Change this text to include that text.
+        // Data Demo code
+        datapoint = "The Text Demo Button";
+        dataclick = false;
+      });
+      $(".datademo").click(function(){
+        // var datapoint is at the start of this so it's global. It is then changed every time you click a button.
+        if(dataclick === false) {
+          dataclick = true;
+        } else {
+          datapoint = "The Data Demo Button";
+          dataclick = false;
+        }
+        $(".datademo").text("The last button you clicked is: "+datapoint+"."); // Change this text to include that text.
+      });
+
+    });
+    </script>
+  </head>
+  <body>
+    <h1>jQuery Examples</h1>
+    <button class="clickdemoreset">Click to reset the p tags</button>
+    <h3></h3>
+    <h1>Click</h1>
+    <div id="centerme">
+      <button class="clickdemo"><em title="huge, gigantic">Click Me!</em></button><br><br>
+    </div>
+    <h3></h3>
+    <p>Example Text</p>
+    <h2>Hide</h2>
+    <button class="hidedemo">Hide the p tags!</button><br><br>
+    <h2>Show</h2>
+    <button class="showdemo">Show the p tags!</button><br><br>
+    <h2>Toggle</h2>
+    <button class="toggledemo">Toggle the p tags!</button><br><br>
+    <h3></h3>
+    <p>Example Text</p>
+    <h2>SlideUp</h2>
+    <button class="slideupdemo">Slide Up the p tags!</button><br><br>
+    <h2>SlideDown</h2>
+    <button class="slidedowndemo">Slide Down the p tags!</button><br><br>
+    <h2>SlideToggle</h2>
+    <button class="slidetoggledemo">Slide Toggle the p tags!</button><br><br>
+    <h3></h3>
+    <p>Example Text</p>
+    <h2>FadeOut</h2>
+    <button class="fadeoutdemo">Fade Out the p tags!</button><br><br>
+    <h2>FadeIn</h2>
+    <button class="fadeindemo">Fade In the p tags!</button><br><br>
+    <h3></h3>
+    <p>Example Text</p>
+    <h2>Before</h2>
+    <button class="beforedemo">add text Before the p tags!</button><br><br>
+    <h2>After</h2>
+    <button class="afterdemo">add text After the p tags!</button><br><br>
+    <h2>Append</h2>
+    <button class="appenddemo">Append to the p tags!</button><br><br>
+    <h3></h3>
+    <p>Example Text</p>
+    <h2>AddClass</h2>
+    <button class="addclassdemo">Add Class to the p tags!</button><br><br>
+    <h2>HTML</h2>
+    <button class="htmldemo">Apply some HTML to the p tags!</button><br><br>
+    <h3></h3>
+    <p>Example Text</p>
+    <h2>Attr</h2>
+    <button class="attrdemo">Click me to see an Attr of the em in the Click button!</button><br><br>
+    <h3></h3>
+    <p>Example Text</p>
+    <h2>Val</h2>
+    <input class="valTextbox" type="text" value="Value demo"><br><br>
+    <button class="valdemo">Click me to see the Val of the Value demo textbox!</button><br><br>
+    <h3></h3>
+    <p>Example Text</p>
+    <h2>Text</h2>
+    <button class="textdemo">Click me to change my text to that of the p tags!</button><br><br>
+    <h3></h3>
+    <p>Example Text</p>
+    <h2>Data</h2>
+    <button class="datademo">Click me to find out what button you clicked before me!</button><br><br>
+    <h3></h3>
+  </body>
+</html>

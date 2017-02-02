@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Disappearing Tarigrades</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript">
+    $(document).ready(function(){
+
+      $("img").click(function(){
+        $(this).attr("src","okbye.jpeg");
+        $(this).fadeOut("slow");
+      });
+
+      $("button").click(function(){
+        $(".disappear").attr("src","tarigrade.jpg");
+        $(".disappear").fadeIn("slow");
+      });
+      
+    });
+    </script>
+  </head>
+  <body>
+    <h2>jQuery - assignment 1: Disappearing Tarigrades</h2>
+    <img class="disappear" src="tarigrade.jpg" alt="Database Logo" style="width:150px;height:150px;">
+    <img class="disappear" src="tarigrade.jpg" alt="Database Logo" style="width:150px;height:150px;">
+    <img class="disappear" src="tarigrade.jpg" alt="Database Logo" style="width:150px;height:150px;">
+    <img class="disappear" src="tarigrade.jpg" alt="Database Logo" style="width:150px;height:150px;">
+    <p></p>
+    <img class="disappear" src="tarigrade.jpg" alt="Database Logo" style="width:150px;height:150px;">
+    <img class="disappear" src="tarigrade.jpg" alt="Database Logo" style="width:150px;height:150px;">
+    <img class="disappear" src="tarigrade.jpg" alt="Database Logo" style="width:150px;height:150px;">
+    <img class="disappear" src="tarigrade.jpg" alt="Database Logo" style="width:150px;height:150px;"><p></p>
+    <button>Restore</button><br><br>
+  </body>
+</html>

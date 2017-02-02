@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Dojo Arena</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+
+    <script type="text/javascript">
+      function setup() {
+        $("#player1select").hide();
+        $("#player2select").hide();
+        $("#selectbox").css('opacity', '0.9');
+        $("#img").fadeIn("fast");
+        $("#img").fadeOut("fast");
+      }
+
+      function setPlayer1(){
+        var player1 = $("select#player1select").val();
+        $("#player1img").css('background-image', 'url("images/'+player1+'.png")');
+      }
+
+      function setPlayer2(){
+        var player2 = $("select#player2select").val();
+        $("#player2img").css('background-image', 'url("images/'+player2+'.png")');
+      }
+
+      $(document).ready(function(){
+        setup();
+        var selected = false;
+
+        $("button").hover(function(){
+          $("#img").stop(true,false);
+          $("#mapname").stop(true,false);
+          if(selected == false) {
+            $("#img").css('background-image', 'url("images/'+$(this).attr("name")+'.jpg")');
+            $("#mapname").text($(this).text().toUpperCase());
+          }
+          $("#img").fadeIn();
+          $("#mapname").fadeIn();
+          $("#selectbox").css('opacity', '0.9'); // Prevent bugs.
+        }, function(){
+          if(selected == false) {
+            $("#img").fadeOut("slow");
+            $("#mapname").fadeOut("slow");
+          }
+        });
+
+        $("button").click(function(){
+          selected = true;
+          $("button").fadeOut("fast");
+          $("#img").stop(true,false);
+
+          $("#wrapper").css('background-color','white');
+          $("#img").css('background-image', 'url("images/'+$(this).attr("name")+'.jpg")');
+          $("#img").fadeOut("fast");
+          $("#img").fadeIn();
+
+          // Now set up the new page.
+          $("a").text("Select Players");
+          $("#player1select").fadeIn("slow");
+          $("#player2select").fadeIn("slow");
+        });
+
+      });
+    </script>
+  </head>
+
+
+  <body>
+    <div id="wrapper">
+      <p id="img"></p>
+      <p id="mapname"></p>
+      <div id="selectbox">
+        <a id="selecttext">Select Arena</a>
+
+        <button class="selectbutton beach" name="beach">Beach</button>
+        <button class="selectbutton planet" name="planet">Planet</button>
+        <button class="selectbutton dojo" name="dojo">Dojo</button>
+
+        <button class="selectbutton forest" name="forest">Forest</button>
+        <button class="selectbutton matrix" name="matrix">Matrix</button>
+        <button class="selectbutton snow" name="snow">Snow</button>
+
+        <select id='player1select' onchange="setPlayer1();">
+          <option value='select'>Select Ninja</option>
+          <option value='donny'>Donatello</option>
+          <option value='mikey'>Michelangelo</option>
+          <option value='leo'>Leonardo</option>
+          <option value='raphael'>Raphael</option>
+        </select>
+
+        <select id='player2select' onchange="setPlayer2();">
+          <option value='select'>Select Ninja</option>
+          <option value='donny'>Donatello</option>
+          <option value='mikey'>Michelangelo</option>
+          <option value='leo'>Leonardo</option>
+          <option value='raphael'>Raphael</option>
+        </select>
+      </div>
+      <p id="player1img"></p>
+      <p id="player2img"></p>
+    </div>
+
+  </body>
+</html>

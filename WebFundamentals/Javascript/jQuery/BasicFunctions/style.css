@@ -1,0 +1,57 @@
+*{
+ margin: 0px;
+ margin-left: 5px;
+ padding: 5px;
+ font-family: Arial;
+ font-size: 15px;
+ color: rgb(89,89,89);
+}
+
+h1 {
+  text-align: center;
+  margin-left: -5px;
+  font-size: 25px;
+}
+
+h2 {
+  margin-left: 10px;
+  margin-bottom: 5px;
+  font-size: 21px;
+  color: rgb(75,75,75);
+}
+
+h3 {
+  display: block;
+  background-color: rgb(205,205,205);
+  height: 1px;
+  width: inherit;
+  font-size: 0px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: -5px;
+}
+
+p {
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+}
+
+#centerme {
+  text-align: center;
+}
+
+.clickdemo {
+  position: absolute;
+  margin-left: -50px;
+}
+
+.changeColor {
+  color: rgb(250,20,20);
+  background-color: blue;
+}
+
+.changeColor2 {
+  color: rgb(20,250,20);
+  background-color: pink;
+}

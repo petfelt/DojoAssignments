@@ -1,0 +1,12 @@
+*{
+  font-family: Arial;
+}
+
+img {
+  outline: black solid 1px;
+}
+
+.disappear {
+  margin: 5px;
+  display: inline-block;
+}

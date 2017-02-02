@@ -1,0 +1,34 @@
+* {
+  font-family: Times;
+}
+
+
+th {
+  padding-right: 50px;
+  border-width: 0px;
+  border-bottom-width: 1px;
+}
+td {
+  border-width: 0px;
+  border-bottom-width: 1px;
+}
+
+form {
+  width: 40%;
+}
+
+
+
+input {
+  margin-bottom: 5px;
+}
+
+#titleline {
+  vertical-align: top;
+  position: absolute;
+  display: inline-block;
+  width:39.75%;
+  height: 2px;
+  margin-top: -25px;
+  background: grey;
+}

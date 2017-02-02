@@ -1,0 +1,131 @@
+*{
+  padding: 0px;
+  margin: 0px;
+  font-family: Arial;
+}
+
+#wrapper {
+  width: 930px;
+  height: 517.5px;
+  background: rgb(5,5,5);
+  border: darkgrey solid 10px;
+}
+
+#img {
+  width: 930px;
+  height: 517.5px;
+  position: absolute;
+  background-size: 930px 517.5px;
+  background-repeat: no-repeat;
+}
+
+#selectbox {
+  width: 300px;
+  height: 150px;
+  margin-left: 315px;
+  margin-top: 105.25px;
+  background-color: rgba(150,150,160,0.9);
+  opacity: 0.9px;
+  border: grey solid 5px;
+  border-radius: 10px;
+}
+
+#selecttext {
+  position: absolute;
+  display: inline-block;
+  width: inherit;
+  height: inherit;
+  text-align: center;
+  margin-top: 20px;
+  color: orange;
+  font-size: 26px;
+  text-shadow: 2px 2px 0px white;
+}
+
+.selectbutton {
+  position: absolute;
+  display: inline-block;
+  width: 80px;
+  height: 30px;
+  border-radius: 5px;
+  background-color: rgb(240,240,240);
+  font-size: 12px;
+}
+
+#mapname {
+  position: absolute;
+  display: inline-block;
+  width: inherit;
+  height: auto;
+  text-align: center;
+  margin-top: 440px;
+  color: rgba(0,135,221,0.8);
+  font-size: 60px;
+  text-shadow: 1px 1px 25px white;
+}
+
+.beach {
+  margin-left: 30px;
+  margin-top: 65px;
+}
+
+.planet {
+  margin-left: 110px;
+  margin-top: 65px;
+}
+
+.dojo {
+  margin-left: 190px;
+  margin-top: 65px;
+}
+
+.forest {
+  margin-left: 30px;
+  margin-top: 95px;
+}
+
+.matrix {
+  margin-left: 110px;
+  margin-top: 95px;
+}
+
+.snow {
+  margin-left: 190px;
+  margin-top: 95px;
+}
+
+#player1select {
+  position: absolute;
+  display:inline-block;
+  margin-left: 25px;
+  margin-top: 65px;
+}
+
+#player2select {
+  position: absolute;
+  display:inline-block;
+  margin-left: 190px;
+  margin-top: 65px;
+}
+
+#player1img {
+  position: absolute;
+  display:inline-block;
+  height: 250px;
+  width: 150px;
+  background-size: 150px 250px;
+  background-repeat: no-repeat;
+  margin-top: -20px;
+  margin-left: 90px;
+}
+
+#player2img {
+  position: absolute;
+  display:inline-block;
+  height: 250px;
+  width: 150px;
+  background-size: 150px 250px;
+  background-repeat: no-repeat;
+  margin-top: -20px;
+  margin-left: 690px;
+}

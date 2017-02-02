@@ -1,0 +1,20 @@
+*{
+  font-family: Arial;
+}
+
+button {
+  margin-left: 5px;
+  background-color: green;
+  color: white;
+  /*outline: black solid 1px;*/
+  box-shadow: 2px 2px 3px rgb(50,50,50);
+}
+
+img {
+  outline: black solid 1px;
+}
+
+.disappear {
+  margin: 5px;
+  display: inline-block;
+}
