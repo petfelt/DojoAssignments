@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Pokemon!</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript">
+
+    var request;
+
+    function attach_handlers(num) {
+      $(document).on('click', '#id'+num, function(){
+
+        if(request) { // This will check if request has been set yet.
+          request.abort(); // If yes, abort it so you don't have multiple JSON requests at once.
+        }
+
+        // Fade out while loading...
+        $('h1').text("Loading...");
+        $('#img').fadeTo(300,0.3);
+        $('h1').fadeTo(300,0.3);
+        $('h4').fadeTo(300,0.3);
+        $('ul').fadeTo(300,0.3);
+
+        // Ask for API info and apply it.
+        request = $.getJSON('http://pokeapi.co/api/v1/pokemon/'+num+'/', function(res){
+          $('#name').text(res.name);
+          $('#img').attr("src", "http://pokeapi.co/media/img/"+num+".png");
+          $('ul').html("<li>"+res.types[0].name+"</li>");
+          if(res.types.length > 1){
+            $('ul').append("<li>"+res.types[1].name+"</li>");
+          }
+          $('#height').text(res.height);
+          $('#weight').text(res.weight);
+
+           // If you complete your pokedex, some weights/heights are unknown.
+          if($('#height').text() == "0") {
+            $('#height').text("Unknown");
+            $('#weight').text("Unknown");
+          }
+
+          // Stop fade animations and "fadeIn"
+          $("#img").stop(true,false);
+          $("h1").stop(true,false);
+          $("h4").stop(true,false);
+          $("ul").stop(true,false);
+          $('#img').fadeTo(300,1);
+          $('h1').fadeTo(300,1);
+          $('h4').fadeTo(300,1);
+          $('ul').fadeTo(300,1);
+        });
+      });
+    }
+
+    $(document).ready(function(){
+      for(var i = 1; i<152;i++) {
+        $('body p').append('<img id="id'+i+'" src="http://pokeapi.co/media/img/'+i+'.png">');
+        attach_handlers(i);
+      }
+
+      $(document).on('click', '#morepokemon', function(){
+        $('#morepokemon').hide();
+        for(var i = 152; i<719;i++) {
+          $('body p').append('<img id="id'+i+'" src="http://pokeapi.co/media/img/'+i+'.png">');
+          attach_handlers(i);
+        }
+      });
+    });
+    </script>
+    <style type="text/css">
+    *{
+      font-family: Arial;
+    }
+
+    #pokelist {
+      vertical-align: top;
+      position: absolute;
+      display: inline-block;
+      width:70%;
+    }
+
+    #pokedex {
+      vertical-align: top;
+      position: fixed;
+      display: inline-block;
+      margin-left: 70%;
+      width:20%;
+      height: 490px;
+      border: red solid 30px;
+      border-bottom-width: 100px;
+    }
+
+    #morepokemon {
+      margin-top: -25px;
+      position: fixed;
+      display: inline-block;
+      width:20%;
+      background-color: red;
+      font-weight: bold;
+      color: darkblue;
+      border-radius: 25px;
+    }
+
+    #img {
+      display: none;
+      margin-left: 20%;
+    }
+    #height {
+      font-weight: normal;
+    }
+    #weight {
+      font-weight: normal;
+    }
+
+    h1 {
+      display: none;
+      opacity: 1.0;
+      text-align: center;
+    }
+    h4{
+      display: none;
+      margin-left: 10px;
+    }
+    ul{
+      display: none;
+    }
+    </style>
+  </head>
+  <body>
+    <p id="pokelist">
+      <!-- Dynamic code: Left side goes here. -->
+    </p>
+    <a id="pokedex">
+      <button id="morepokemon">Complete Your Pokedex</button>
+      <h1 id="name">Bulbasaur</h1>
+      <img id="img" src="http://pokeapi.co/media/img/1.png">
+      <h4 id="tagtypes">Types</h4>
+      <ul id="list">
+        <li id="li1">poison</li>
+        <li id="li2">grass</li>
+      </ul>
+      <h4 id="tagheight">Height</h4>
+      <h4 id="height">7</h4>
+      <h4 id="tagweight">Weight</h4>
+      <h4 id="weight">69</h4>
+    </a>
+  </body>
+</html>

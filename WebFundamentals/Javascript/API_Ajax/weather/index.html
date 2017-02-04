@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Weather Search</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+      var celcius = false;
+
+      $(document).on('click', '#switch', function(){
+        celcius = !celcius;
+        var number = $("a").text().split(" ");
+        if(celcius === true) {
+          $("a").text("Temperature: "+((number[1]-32)/(9/5)).toFixed(2)+" °C");
+        } else {
+          $("a").text("Temperature: "+(number[1]*1.8+32).toFixed(2)+" °F");
+        }
+      });
+
+        $('form').submit(function() {
+          // your code here (build up your url)
+          $.get("http://api.openweathermap.org/data/2.5/weather?q="+$("#loc").val()+"&appid=ac5437366f59b3533f9c6e9a20fdd9c4", function(res) {
+            $("h1").text(res.name);
+            if(celcius === false) {
+              $("a").text("Temperature: "+(res.main.temp*(9/5)-459.67).toFixed(2)+" °F");
+            } else {
+              $("a").text("Temperature: "+(res.main.temp-273.15).toFixed(2)+" °C");
+            }
+            $("h1").show();
+            $("a").show();
+        }, 'json').fail(function() { // If it can't find a city, aka error return.
+          if($("#loc").val() !== "") { // If it's not blank, because we have that error condition later.
+            alert('That search entry is not valid! Try searching for somewhere else.');
+          }
+        });
+        if($("#loc").val() == "") { // If you don't put a city in.
+          alert("Type something before searching!");
+        }
+
+        // don't forget to return false so the page doesn't refresh
+        return false;
+    });
+});
+    </script>
+    <style type="text/css">
+    /* CSS goes in here. */
+    h1{
+      display:none;
+    }
+    a {
+      display:none;
+    }
+    </style>
+  </head>
+  <body>
+    <h2>Weather Search</h2>
+    <p>Search for a city to find out the weather! <button id="switch"> °C / °F </button></p>
+    <form>
+      <input id="loc" type="text" name="location" value=""></input>
+      <input type="submit" value=" Search Weather "></input>
+      <h1>London</h1>
+      <a>Temperature: 61</a>
+    </form>
+  </body>
+</html>
