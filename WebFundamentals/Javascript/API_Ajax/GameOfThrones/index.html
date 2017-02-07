@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Game Of Thrones</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+
+    function attach_handlers(i) { // Changes text in box.
+      var request;
+      if(i == 0){
+        request = $.getJSON("https://anapioficeandfire.com/api/houses/362", function(res){setText(res)});
+      } else if(i == 1){
+        request = $.getJSON("https://anapioficeandfire.com/api/houses/378", function(res){setText(res)});
+      } else if(i == 2){
+        request = $.getJSON("https://anapioficeandfire.com/api/houses/229", function(res){setText(res)});
+      } else {
+        request = $.getJSON("https://anapioficeandfire.com/api/houses/17", function(res){setText(res)});
+      }
+    };
+
+    function setText(res){
+      $("#name").text("Name: "+res.name);
+      $("#words").text("Words: "+res.words);
+      $("#region").text("Region: "+res.region);
+      $("#titles").text("Titles: ");
+      for(var idx=0; idx<res.titles.length; idx++){ // Add spaces and commas between titles.
+        $("#titles").append(res.titles[idx]+", ");
+      }
+      $("#titles").text($("#titles").text().slice(0,-2)); // Remove the last comma and space.
+    };
+
+
+    $(document).ready(function(){
+      $(document).on('click', '#stark', function(){
+        attach_handlers(0);
+      });
+      $(document).on('click', '#targaryen', function(){
+        attach_handlers(1);
+      });
+      $(document).on('click', '#lannister', function(){
+        attach_handlers(2);
+      });
+      $(document).on('click', '#baratheon', function(){
+        attach_handlers(3);
+      });
+    });
+
+    </script>
+
+    <style type="text/css">
+    *{
+      padding: 0px;
+      margin: 0px;
+      font-family: Arial;
+      font-size: 16px;
+    }
+    p{
+      margin-bottom: 25px;
+    }
+    #detailsbox{
+      position: relative;
+      display: inline-block;
+      width: 86%;
+      height: 220px;
+      margin-left: 10px;
+      margin-top: 10px;
+      padding: 10px;
+      border: 1px solid black;
+    }
+    .housebox{
+      position: relative;
+      display: inline-block;
+      width: 20%;
+      height: 200px;
+      margin-left: 15px;
+      margin-top: 15px;
+      border: 1px solid black;
+    }
+    .house{
+      position: inherit;
+      display: inline-block;
+      width: 100%;
+      height: inherit;
+    }
+    .housetitle{
+      position: absolute;
+      margin-top: -125px;
+      width: 85%;
+      height: auto;
+      padding: 5px;
+      margin-left: 3%;
+      text-align: center;
+      border: 3px solid rgba(100, 100, 100, 0.5);
+      border-radius: 5px;
+      background-color: rgba(220, 220, 220, 0.5);
+    }
+    </style>
+
+  </head>
+  <body>
+    <div  id="stark" class="housebox">
+      <img class="house" src="images/stark.jpg">
+      <a class="housetitle">House Stark</a>
+    </div>
+    <div id="targaryen" class="housebox">
+      <img class="house" src="images/targaryen.jpg">
+      <a class="housetitle">House Targaryen</a>
+    </div>
+    <div id="lannister" class="housebox">
+      <img class="house" src="images/lannister.jpg">
+      <a class="housetitle">House Lannister</a>
+    </div>
+    <div id="baratheon" class="housebox">
+      <img class="house" src="images/baratheon.png">
+      <a class="housetitle">House Baratheon</a>
+    </div>
+    <div id="detailsbox">
+      <p><b>House Details</b></p>
+      <p id="name"></p>
+      <p id="words"></p>
+      <p id="region"></p>
+      <p id="titles"></p>
+      <!-- Dynamic code goes here. -->
+
+    </div>
+  </body>
+</html>
