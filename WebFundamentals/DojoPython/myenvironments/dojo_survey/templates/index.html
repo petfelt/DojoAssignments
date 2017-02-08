@@ -1,0 +1,28 @@
+<html>
+    <head>
+       <title>Form Survey Index</title>
+    </head>
+    <body>
+      <h1>Welcome!</h1>
+      <h3>Create a User</h3>
+      <!-- read on to learn about form actions, we'll talk about the method in a later section -->
+      <form action='/result' method='post'>
+          Your Name: <input type='text' name='name'><p></p>
+          Dojo Locaton: <select name='location'>
+            <option>Seattle</option>
+            <option>San Jose</option>
+            <option>The North Pole</option>
+          </select><p></p>
+          Favorite Language: <select name='language'>
+            <option>Python</option>
+            <option>JavaScript</option>
+            <option>Java</option>
+            <option>HTML</option>
+            <option>A variant of C</option>
+          </select><p></p>
+          Comment (optional): <input type='text' name='comment'><p></p>
+
+          <input type='submit' value='create user'>
+      </form>
+    </body>
+</html>

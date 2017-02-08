@@ -1,0 +1,64 @@
+<html>
+    <head>
+      <meta charset="utf-8">
+      <title>Number Game</title>
+
+      <style>
+      *{
+        text-align: center;
+      }
+      #box{
+        display: inline-block;
+        text-align: center;
+        padding-top: 104px;
+        width: 250px;
+        height: 125px;
+        background-color: red;
+        border: 2px solid black;
+        font-size: 20px;
+        color: white;
+        font-family: arial;
+      }
+      #reset{
+        position: relative;
+        margin-top: -120px;
+
+      }
+      </style>
+
+    </head>
+    <body>
+      <h1>Welcome to the Great Number Game!</h1>
+      <p>I'm thinking of a number between 1 and 100</p>
+      <p>Take a guess!</p>
+
+      {% if session['clicked'] == True %}
+      <a id="box">Too low!</a>
+      {% endif %}
+
+      <form action='/' method='post'>
+        <br><br>
+        <input type="text" id="guessbox" name="guess" value= {{session['guess']}}></input><p></p>
+        <input type="submit" id="submitter" value="Submit"></input>
+      </form>
+
+      {% if session['checked'] == 1 %}
+      <script>
+      document.getElementById("box").text = "Too high!";
+      </script>
+      {% elif session['checked'] == -1 %}
+      <script>
+      document.getElementById("box").text = "Too low!";
+      </script>
+      {% elif session['checked'] == 0 %}
+      <script>
+      document.getElementById("box").text = {{session['random_num']}}+" was the number!";
+      document.getElementById("box").style.background = "green";
+      document.getElementById("guessbox").style.display = "none";
+      document.getElementById("submitter").style.display = "none";
+      </script>
+      <input type="button" id="reset" value="Play Again!" onClick="window.location.href=window.location.href"></input>
+      {% endif %}
+
+    </body>
+</html>
