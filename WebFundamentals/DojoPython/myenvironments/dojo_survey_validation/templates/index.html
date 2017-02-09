@@ -1,0 +1,57 @@
+<html>
+    <head>
+       <title>Form Survey Index</title>
+       <style type="text/css">
+       .red{
+         color:red;
+       }
+       .mainbox{
+         border: 2px solid black;
+         text-align: center;
+         width: 50%;
+         height: auto;
+         padding-left: 25px;
+         padding-right: 25px;
+         margin-left: 22.5%;
+         border-radius: 5px;
+       }
+       #textarea{
+         max-width: 75%;
+         max-height: 20%;
+       }
+
+       </style>
+    </head>
+    <body>
+      <div class="mainbox">
+      <h1>Welcome!</h1>
+      <h3>Create a User</h3>
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          {% for message in messages %}
+            <p class="red">{{message}}</p>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+
+      <form action='/result' method='post'>
+          Your Name: <input type='text' name='name' value= {{session['name']}}><p></p>
+          Dojo Locaton: <select name='location'>
+            <option>Seattle</option>
+            <option>San Jose</option>
+            <option>The North Pole</option>
+          </select><p></p>
+          Favorite Language: <select name='language'>
+            <option>Python</option>
+            <option>JavaScript</option>
+            <option>Java</option>
+            <option>HTML</option>
+            <option>A variant of C</option>
+          </select><p></p>
+          <p>Comment (optional):</p>
+          <textarea id="textarea" rows="4" cols="50" maxlength="140" name='comment'>{{session['comment']}}</textarea><p></p>
+          <input type='submit' value='Create User'>
+      </form>
+    </div>
+    </body>
+</html>

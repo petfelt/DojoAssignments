@@ -1,0 +1,30 @@
+<html>
+    <head>
+       <title>Form Survey Index</title>
+       <style type="text/css">
+       .mainbox{
+         border: 2px solid black;
+         text-align: center;
+         width: 50%;
+         height: auto;
+         padding-left: 25px;
+         padding-right: 25px;
+         margin-left: 22.5%;
+         border-radius: 5px;
+       }
+
+       </style>
+    </head>
+    <body>
+      <div class="mainbox">
+        <h1>Submitted Info</h1>
+        <p>Name: {{session['name']}}</p>
+        <p>Location: {{session['location']}}</p>
+        <p>Language: {{session['language']}}</p>
+        <p>Comment: {{session['comment']}}</p>
+        <form action='/'>
+            <input type='submit' value='Go Back'>
+        </form>
+      </div>
+    </body>
+</html>

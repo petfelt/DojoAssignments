@@ -1,0 +1,104 @@
+<html>
+    <head>
+      <meta charset="utf-8">
+      <title>Ninja Gold</title>
+
+      <style>
+      #reset{
+        margin-top: 200px;
+        color: black;
+      }
+      #myGold{
+        margin-right: 70%;
+        padding-right: 125px;
+        padding-left: 5px;
+        border: 2px black solid;
+      }
+      .buildingbox{
+        display:inline-block;
+        margin-top: 20px;
+        padding-top: 15px;
+        width: 20%;
+        margin-right: 3%;
+        height: 185px;
+        border: 2px black solid;
+        text-align: center;
+      }
+      #activitiesbox{
+        display: inline-block;
+        width: 90%;
+        height: 100px;
+        overflow:scroll;
+        border: 2px solid black;
+        padding-left: 2%;
+        padding-bottom: 2%;
+      }
+      .red {
+        color: red;
+      }
+      .green {
+        color: green;
+      }
+      </style>
+
+
+    </head>
+    <body>
+      Your gold: <a id="myGold">{{session['gold']}}</a>
+
+      <div class="buildingbox">
+        <h1>Farm</h1>
+        <h4>(earns 10-20 golds)</h4>
+        <form action='/process_money/farm' method='post'>
+          <input type="hidden" name="building" value="house"></input>
+          <input type="submit" value="Find Gold!"></input>
+        </form>
+      </div>
+      <div class="buildingbox">
+        <h1>Cave</h1>
+        <h4>(earns 5-10 golds)</h4>
+        <form action='/process_money/cave' method='post'>
+          <input type="hidden" name="building" value="house"></input>
+          <input type="submit" value="Find Gold!"></input>
+        </form>
+      </div>
+      <div class="buildingbox">
+        <h1>House</h1>
+        <h4>(earns 2-5 golds)</h4>
+        <form action='/process_money/house' method='post'>
+          <input type="hidden" name="building" value="house"></input>
+          <input type="submit" value="Find Gold!"></input>
+        </form>
+      </div>
+      <div class="buildingbox">
+        <h1>Casino</h1>
+        <h4>(earns/takes 0-50 golds)</h4>
+        <form action='/process_money/casino' method='post'>
+          <input type="hidden" name="building" value="house"></input>
+          <input type="submit" value="Find Gold!"></input>
+        </form>
+      </div>
+      <p>Activities:</p>
+      <div id="activitiesbox">
+        {% for message in session['activities'] %}
+        {% if message == "red" %}
+        <p class = "red">
+        {% elif message == "green" %}
+        <p class = "green">
+        {% else %}
+          {{message}}</p>
+        {% endif %}
+        {% endfor %}
+      </div>
+      <form action='/reset' method='post'>
+        <input id="reset" type="submit" value="Reset"></input>
+      </form>
+
+      <!-- Script that forces activities scrollbox to bottom of scroll box -->
+      <script type="text/javascript">
+      document.getElementById("activitiesbox").scrollTop = 1000000;
+      </script>
+
+
+    </body>
+</html>
