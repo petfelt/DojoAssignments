@@ -1,0 +1,35 @@
+#reset{
+  margin-top: 200px;
+  color: black;
+}
+#myGold{
+  margin-right: 70%;
+  padding-right: 125px;
+  padding-left: 5px;
+  border: 2px black solid;
+}
+.buildingbox{
+  display:inline-block;
+  margin-top: 20px;
+  padding-top: 15px;
+  width: 20%;
+  margin-right: 3%;
+  height: 185px;
+  border: 2px black solid;
+  text-align: center;
+}
+#activitiesbox{
+  display: inline-block;
+  width: 90%;
+  height: 100px;
+  overflow:scroll;
+  border: 2px solid black;
+  padding-left: 2%;
+  padding-bottom: 2%;
+}
+.red {
+  color: red;
+}
+.green {
+  color: green;
+}

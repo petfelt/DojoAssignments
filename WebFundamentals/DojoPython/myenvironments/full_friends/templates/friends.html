@@ -1,0 +1,95 @@
+<html>
+    <head>
+       <title>Full Friends</title>
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+       <style type="text/css">
+       .red{
+         color:red;
+         padding: 5px;
+         border: 2px solid black;
+         border-radius: 25px;
+         background-color: rgba(227,227,227,0.9);
+       }
+       .green{
+         color:green;
+         font-size: 20px;
+         padding: 20px;
+         border: 2px solid black;
+         border-radius: 25px;
+         background-color: rgba(227,227,227,0.5);
+       }
+       .mainbox{
+         border: 2px solid black;
+         background-color: rgb(181,208,230);
+         text-align: center;
+         width: 50%;
+         height: auto;
+         padding-left: 25px;
+         padding-right: 25px;
+         margin-left: 22.5%;
+         border-radius: 5px;
+       }
+
+       </style>
+    </head>
+    <body>
+      <div class="mainbox">
+      {% if session['what_page'] == "edit"%}
+        <h3>Edit The User Below:</h3>
+      {% else %}
+        <h3>Create A New User Below:</h3>
+      {% endif %}
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+            {% if session['returner'] == False %}
+              <p class="green">{{message}}</p>
+            {% else %}
+              <p class="red">{{message}}</p>
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+
+      {% if session['what_page'] == "edit"%}
+      <form action= /friends/{{session['current_id']}} method='post'>
+        <!-- some vars that are incremented thru in a somewhat hacky method so I can do it with Jinja2. -->
+        {% set cnt = [0] %}
+        {% set bool = [0] %}
+        {% for users in session['full_list'] %}
+          {% if cnt.append(cnt.pop() + 1) %}{%endif%}
+          {% if users == session['current_id']|int %}
+          {% if bool.append(bool.pop() + 1) %}{%endif%}
+          {% endif %}
+          {% if bool[0] >= 1%}
+            <!-- Have form in here when the id is right. -->
+            {% if cnt[0] == 2%}
+            First Name: <input type='text' name='first_name' value= {{users}}><p></p>
+            {% elif cnt[0] == 3 %}
+            Last Name: <input type='text' name='last_name' value= {{users}}><p></p>
+            {% elif cnt[0] == 4 %}
+            Last Name: <input type='text' name='email' value= {{users}}><p></p>
+            {% endif %}
+          {% endif %}
+          {% if cnt[0] == 5 %}
+            {% if cnt.append(cnt.pop()*0) %}{%endif%}
+            {% if bool.append(bool.pop()*0) %}{%endif%}
+          {% endif %}
+        {% endfor %}
+          <input type='submit' value='Update User'>
+      </form>
+      <p>____________________</p>
+      <form action= /friends/{{session['current_id']}}/delete method='post'>
+        <input type='submit' value='Delete User'>
+      </form>
+      {% else %}
+      <form action='/friends' method='post'>
+        First Name: <input type='text' name='first_name' value= {{session['first_name']}}><p></p>
+        Last Name: <input type='text' name='last_name' value= {{session['last_name']}}><p></p>
+        Your Email: <input type='text' name='email' value= {{session['email']}}><p></p>
+          <input type='submit' value='Create User'>
+      </form>
+      {% endif %}
+    </div>
+    </body>
+</html>

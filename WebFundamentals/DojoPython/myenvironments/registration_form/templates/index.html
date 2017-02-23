@@ -41,11 +41,11 @@
       <h3>Register Below:</h3>
       {% with messages = get_flashed_messages() %}
         {% if messages %}
-          {% for message in messages %}
+            {% for message in messages %}
             {% if session['returner'] == False %}
-            <p class="green">{{message}}</p>
+              <p class="green">{{message}}</p>
             {% else %}
-            <p class="red">{{message}}</p>
+              <p class="red">{{message}}</p>
             {% endif %}
           {% endfor %}
         {% endif %}

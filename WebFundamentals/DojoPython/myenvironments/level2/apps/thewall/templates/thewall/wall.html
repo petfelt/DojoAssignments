@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <title>The Wall</title>
+       {% load staticfiles %}
+       <!-- The line above tells Django to be ready to listen for static files -->
+       <link rel="stylesheet" href="{% static 'thewall/css/wall.css' %}"media="screen" title="no title"  charset="utf-8">
+    </head>
+    <body>
+      <div class="mainbox">
+        <div class="header text_entered">
+          <h2 class="same_line header_text">CodingDojo Wall</h2>
+          {% if request.session.logout == True %}
+            {% for users in usrs %}
+              {% if request.session.user_id == users.id %}
+                <p id="login_name" class="same_line align_right header_text">Hello, {{users.first_name}}!</p>
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+          <form class="same_line">
+            {% csrf_token %}
+            <a href="/logout" class="same_line align_right">Logout</a>
+          </form class="same_line">
+        </div>
+        <a class="horiz_line"></a>
+        {% if request.session.logout == True %}
+
+          {% if messages %}
+              {% for message in messages %}
+                {% if request.session.returner == False %}
+                  <p class="text_entered green align_center">{{message}}</p>
+                {% else %}
+                  <p class="text_entered red align_center">{{message}}</p>
+                {% endif %}
+              {% endfor %}
+          {% endif %}
+
+        <!-- PUT ALL WALL CODE IN HERE. (Avoids potential misusers.) -->
+        <form action='/post_message/' method='post'><p></p>
+          {% csrf_token %}
+          <h3>Post a message:</h3>
+          <textarea class="textarea" style="width:91.25%; max-width:91.25%; max-height: 375px;" rows="11" cols="50" maxlength="1000" name='message'></textarea><p></p>
+          <input class="align_button" type='submit' value='Post a message'>
+        </form>
+
+        {% for messages in msgs %}
+          <h2 class="text_entered same_line">{{ messages.user.first_name }}</h2>
+          <h2 class="text_entered same_line">{{messages.user.last_name}}</h2>
+          <h5 class="text_entered same_line"> - {{messages.created_at}} </h5>
+          {% if request.session.user_id == messages.user.id %}
+            <form class="text_entered same_line" action= /delete_message/{{messages.id}} method='post'><p></p>
+              {% csrf_token %}
+              <input class="same_line" type='submit' value='Delete this message'>
+            </form>
+          {% endif %}
+          <p class="indent">{{messages.message}}</p>
+          {% for comments in cmts %}
+          <!-- Now check the current post id vs the post id of the comment. -->
+            {% if comments.message.id == messages.id %}
+            <!-- If they are the same, add the comment. -->
+            <h5 class="text_entered same_line comment_indent">{{comments.user.first_name}}</h5>
+            <h5 class="text_entered same_line">{{comments.user.last_name}} - </h5>
+            <h5 class="text_entered same_line">{{comments.created_at}}</h5>
+            <p class="comment_indent">{{comments.comment}}</p>
+            {% endif %}
+          {% endfor %}
+          <form class="comment_indent" action= /post_comment/{{messages.id}} method='post'><p></p>
+            <h3>Post a comment:</h3>
+            {% csrf_token %}
+            <textarea class="textarea" style="max-height: 250px;" rows="4" cols="50" maxlength="1000" name='comment'></textarea><p></p>
+            <input class="align_button" type='submit' value='Post a comment'>
+          </form>
+
+
+
+        {% endfor %}
+        {% else %}
+        <h3 class="text_entered red align_center">You do not have permission to view this page.</h3>
+        {% endif %}
+
+      </div>
+    </body>
+</html>

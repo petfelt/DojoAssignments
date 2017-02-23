@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Add a student to all bootcamp courses</title>
+    {% load staticfiles %}
+    <!-- The line above tells Django to be ready to listen for static files -->
+    <link rel="stylesheet" href="{% static 'courses/css/main.css' %}"media="screen" title="no title"  charset="utf-8">
+  </head>
+  <body>
+    <div class="mainbox">
+      {% if messages %}
+        {% for message in messages %}
+          {% if message.tags == "error" %}<p class="text_entered red">{{message}}</p>
+          {% else %}<p class="text_entered green">{{message}}</p>{% endif %}
+        {% endfor %}
+      {% endif %}
+      <form action='/create/' method='post'><p></p>
+        {% csrf_token %}
+        <h2>Add a new course</h2>
+        Name: <input type='text' style="width:45%;" name='course_name' value= ""><p></p>
+        Description: <textarea style="width:40%; max-width:80%; max-height: 70px;" rows="11" cols="50" maxlength="1000" name='description'></textarea><p></p>
+        <input class="align_button" type='submit' value='Add'>
+      </form>
+      <a class="horiz_line"></a>
+      <h2>Courses</h2>
+      <table>
+        <tr>
+          <th>Course Name</th>
+          <th>Description</th>
+          <th>Date Added</th>
+          <th>Action</th>
+        </tr>
+        {% for course in curses %}
+        <tr>
+          <td><a class="text_entered">{{ course.name }}</a></td>
+          <td><a class="text_entered">{{ course.description }}</a></td>
+          <td>{{ course.created_at }}</td>
+          <td><a href=/courses/destroy/{{course.id}}>remove<a></td>
+        </tr>
+        {% endfor %}
+      </table>
+
+
+    </div>
+  </body>
+</html>

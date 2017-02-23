@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ninjas</title>
+    {% load static %}
+  </head>
+  <body>
+
+    {% if myninja == "blue" %}
+      <h2>Leonardo!</h2>
+      <img src="{% static 'disappearing/images/leonardo.png' %}" alt="Leonardo!"/>
+    {% elif myninja == "red" %}
+      <h2>Raphael!</h2>
+      <img src="{% static 'disappearing/images/raphael.png' %}" alt="Raphael!"/>
+    {% elif myninja == "purple" %}
+      <h2>Donatello!</h2>
+      <img src="{% static 'disappearing/images/donatello.jpeg' %}" alt="Donatello!"/>
+    {% elif myninja == "orange" %}
+      <h2>Michelangelo!</h2>
+      <img src="{% static 'disappearing/images/michelangelo.png' %}" alt="Michelangelo!"/>
+    {% elif myninja %}
+      <h2>...Megan Fox?</h2>
+      <img src="{% static 'disappearing/images/meganfox.jpg' %}" alt="...Megan Fox?"/>
+    {% else %}
+      <h2>All turtles!</h2>
+      <img src="{% static 'disappearing/images/tmnt.png' %}" alt="All the turtles!"/>
+    {% endif %}
+  </body>
+</html>

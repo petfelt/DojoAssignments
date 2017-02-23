@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <title>Login or Register</title>
+       {% load staticfiles %}
+       <!-- The line above tells Django to be ready to listen for static files -->
+       <link rel="stylesheet" href="{% static 'login_register/css/main.css' %}"media="screen" title="no title"  charset="utf-8">
+    </head>
+    <body>
+      <div class="mainbox">
+        <div class="header text_entered">
+          <h2 class="same_line header_text">Login & Register</h2>
+          {% if request.session.logout == False %}
+            <p id="login_name" class="same_line align_right header_text">Hello, please sign in.</p>
+            <form class="same_line">
+              {% csrf_token %}
+              <a href="/" class="same_line align_right">Login</a>
+            </form class="same_line">
+        </div>
+        <a class="horiz_line"></a>
+          {% else %}
+            {% for users in usrs %}
+              {% if request.session.user_id == users.id %}
+                <p id="login_name" class="same_line align_right header_text">Hello, {{users.first_name}}!</p>
+              {% endif %}
+            {% endfor %}
+            <form class="same_line">
+              {% csrf_token %}
+              <a href="/logout/" class="same_line align_right">Logout</a>
+            </form class="same_line">
+        </div>
+        <a class="horiz_line"></a>
+          {% endif %}
+
+          {% if messages %}
+              {% for message in messages %}
+              {% if request.session.returner == False %}
+                <p class="text_entered green">{{message}}</p>
+              {% else %}
+                <p class="text_entered red">{{message}}</p>
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+
+        <form action='/login/' method='post'>
+          {% csrf_token %}
+          <h3>Login:</h3>
+          Email: <input type='text' name='email' value= ""><p></p>
+          Password: <input type='password' name='password' value= ""><p></p>
+          <input type='submit' value='Login'>
+        </form>
+        <form action='/register/' method='post'>
+          {% csrf_token %}
+          <h3 style="margin-top:40px;">Register:</h3>
+          First Name: <input type='text' name='first_name' value= ""><p></p>
+          Last Name: <input type='text' name='last_name' value= ""><p></p>
+          Email: <input type='text' name='email' value= ""><p></p>
+          Password: <input type='password' name='password' value= ""><p></p>
+          Confirm Password: <input type='password' name='password_confirmation' value= ""><p></p>
+          <input type='submit' value='Register'>
+        </form>
+      </div>
+    </body>
+</html>

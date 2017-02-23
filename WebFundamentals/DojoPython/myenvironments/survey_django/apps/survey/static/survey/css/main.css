@@ -1,0 +1,22 @@
+* {
+}
+
+.box{
+  display: inline-block;
+  text-align: center;
+  margin-left: 30%;
+  margin-bottom: 3%;
+  padding-bottom: 2%;
+  width: 40%;
+  height:auto;
+  outline: 2px black solid;
+}
+
+.green{
+  background-color: rgb(182,215,168);
+}
+
+textarea{
+  max-width: 80%;
+  max-height: 300px;
+}

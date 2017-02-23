@@ -1,0 +1,178 @@
+<html>
+    <head>
+       <title>The Wall</title>
+       <style type="text/css">
+       h3{
+         margin-bottom: 2px;
+       }
+       h2{
+         margin-bottom: 0px;
+       }
+       h5{
+         margin-bottom: 0px;
+       }
+       .text_entered{
+         display: inline-block;
+         /* BELOW CODE: copy pasta that makes emails line break automagically. */
+         /* These are technically the same, but use both */
+         overflow-wrap: break-word;
+         word-wrap: break-word;
+
+         -ms-word-break: break-all;
+         /* This is the dangerous one in WebKit, as it breaks things wherever */
+         word-break: break-all;
+         /* Instead use this non-standard one: */
+         word-break: break-word;
+
+         /* Adds a hyphen where the word breaks, if supported (No Blink) */
+         -ms-hyphens: auto;
+         -moz-hyphens: auto;
+         -webkit-hyphens: auto;
+         hyphens: auto;
+       }
+       .red{
+         display: block;
+         color:red;
+         font-size: 20px;
+         padding: 10px;
+         border: 2px solid black;
+         border-radius: 25px;
+         background-color: rgba(227,227,227,0.9);
+       }
+       .green{
+         display: block;
+         color:green;
+         font-size: 20px;
+         padding: 10px;
+         border: 2px solid black;
+         border-radius: 25px;
+         background-color: rgba(227,227,227,0.5);
+       }
+       .mainbox{
+         display: inline-block;
+         border: 2px solid black;
+         background-color: rgb(181,208,230);
+         text-align: left;
+         width: 75%;
+         height: auto;
+         padding-left: 3%;
+         padding-right: 3%;
+         padding-bottom: 30px;
+         margin-left: 10%;
+         border-radius: 5px;
+       }
+       .header{
+         display:inline-block;
+         width: 100%;
+         height: auto;
+         text-align: left;
+       }
+       .header_text{
+         width: 35%;
+       }
+       #login_name{
+         width: 45%;
+         padding-right: 10%;
+       }
+       .horiz_line{
+         display: inline-block;
+         background-color: black;
+         height: 2px;
+         width: 108%;
+         margin-left: -4%;
+       }
+       .same_line{
+         display: inline-block;
+       }
+       .align_center{
+         text-align: center;
+       }
+       .align_right{
+         text-align: right;
+       }
+       .align_button{
+         margin-left: 70%;
+       }
+       .textarea{
+         width: 90%;
+         max-width: 90%;
+         max-height: 19%;
+       }
+       .indent{
+         margin-left: 5%;
+       }
+       .comment_indent{
+         margin-left: 10%;
+       }
+
+       </style>
+    </head>
+    <body>
+      <div class="mainbox">
+        <div class="header text_entered">
+          <h2 class="same_line header_text">CodingDojo Wall</h2>
+          {% if session['logout'] == True %}
+          <p id="login_name" class="same_line align_right header_text">Hello, {{session['user'][0]['first_name']}}!</p>
+          {% endif %}
+          <form class="same_line">
+            <a href="/logout" class="same_line align_right">Logout</a>
+          </form class="same_line">
+        </div>
+        <a class="horiz_line"></a>
+        {% if session['logout'] == True %}
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+              {% for message in messages %}
+                {% if session['returner'] == False %}
+                  <p class="text_entered green align_center">{{message}}</p>
+                {% else %}
+                  <p class="text_entered red align_center">{{message}}</p>
+                {% endif %}
+              {% endfor %}
+          {% endif %}
+        {% endwith %}
+        <!-- PUT ALL WALL CODE IN HERE. (Avoids potential misusers.) -->
+        <form action='/post_message' method='post'><p></p>
+          <h3>Post a message:</h3>
+          <input type='text' style="width: 200px;" name='title' value='Title'><p></p>
+          <textarea class="textarea" style="width:91.25%; max-width:91.25%;" rows="11" cols="50" maxlength="1000" name='message'></textarea><p></p>
+          <input class="align_button" type='submit' value='Post a message'>
+        </form>
+
+        {% for messages in session['posts'] %}
+          <h2 class="text_entered same_line">{{messages['title']}}</h2>
+          <h5 class="text_entered same_line"> - {{session['users'][messages['users_id']-1]['first_name']}}</h5>
+          <h5 class="text_entered same_line">{{session['users'][messages['users_id']-1]['last_name']}} - </h5>
+          <h5 class="text_entered same_line">{{messages['created_at']}} </h5>
+          {% if session['user_id'] == messages['users_id'] %}
+            <form class="text_entered same_line" action= /delete_message/{{messages['id']}} method='post'><p></p>
+              <input class="same_line" type='submit' value='Delete this message'>
+            </form>
+          {% endif %}
+          <p class="indent">{{messages['message']}}</p>
+          {% for comments in session['comments'] %}
+          <!-- Now check the current post id vs the post id of the comment. -->
+            {% if comments['posts_id'] == messages['id'] %}
+            <!-- If they are the same, add the comment. -->
+            <h5 class="text_entered same_line comment_indent">{{session['users'][comments['users_id']-1]['first_name']}}</h5>
+            <h5 class="text_entered same_line">{{session['users'][comments['users_id']-1]['last_name']}} - </h5>
+            <h5 class="text_entered same_line">{{comments['created_at']}}</h5>
+            <p class="comment_indent">{{comments['comment']}}</p>
+            {% endif %}
+          {% endfor %}
+          <form class="comment_indent" action= /post_comment/{{messages['id']}} method='post'><p></p>
+            <h3>Post a comment:</h3>
+            <textarea class="textarea" rows="4" cols="50" maxlength="1000" name='comment'></textarea><p></p>
+            <input class="align_button" type='submit' value='Post a comment'>
+          </form>
+
+
+
+        {% endfor %}
+        {% else %}
+        <h3 class="text_entered red align_center">You do not have permission to view this page.</h3>
+        {% endif %}
+
+      </div>
+    </body>
+</html>

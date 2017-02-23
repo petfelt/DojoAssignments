@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <title>Login or Register</title>
+       {% load staticfiles %}
+       <!-- The line above tells Django to be ready to listen for static files -->
+       <link rel="stylesheet" href="{% static 'login_register/css/main.css' %}"media="screen" title="no title"  charset="utf-8">
+    </head>
+    <body>
+      <div class="mainbox">
+        <div class="header text_entered">
+          {% if request.session.logout == False %}
+            <h2 class="same_line header_text">Login & Register</h2>
+            <p id="login_name" class="same_line align_right header_text"></p>
+            <form class="same_line">
+              {% csrf_token %}
+              <a href="/" class="same_line align_right">Login</a>
+            </form class="same_line">
+        </div>
+        <a class="horiz_line"></a>
+          {% else %}
+            <h2 class="same_line header_text">Logged In</h2>
+            {% for users in usrs %}
+              {% if request.session.user_id == users.id %}
+                <p id="login_name" class="same_line align_right header_text">Hello, {{users.first_name}}!</p>
+              {% endif %}
+            {% endfor %}
+            <form class="same_line">
+              {% csrf_token %}
+              <a href="/logout/" class="same_line align_right">Logout</a>
+            </form class="same_line">
+        </div>
+        <a class="horiz_line"></a>
+          {% endif %}
+
+          {% if messages %}
+              {% for message in messages %}
+              {% if request.session.returner == False %}
+                <p class="text_entered green">{{message}}</p>
+              {% else %}
+                <p class="text_entered red">{{message}}</p>
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+
+        {% if request.session.logout == True %}
+        <form action='/' method='post'>
+          <h1>Success!</h1>
+          {% csrf_token %}
+          <input type='submit' value='Go back'>
+        </form>
+        {% else %}
+        <h2>You are not allowed to view this page.</h2>
+        <h4>Please go back and login.</h4>
+        {% endif %}
+      </div>
+    </body>
+</html>
