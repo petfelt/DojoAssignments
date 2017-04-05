@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        @{
+            ViewData["Title"] = "Add A User";
+        }
+        <link rel="stylesheet" href="~/css/site.css"/>
+    </head>
+    <body>
+        <div class="mainbody">
+            <h1>Enter Your Information:</h1><br>
+            <div>
+                @{
+                    foreach(var error in ViewBag.errors)
+                    {
+                        //If there are any errors for a field...
+                        if(@error.Errors.Count > 0)
+                        {
+                            // We show the first error for that field
+                            <p class="red"><b>@error.Errors[0].ErrorMessage</b></p>
+                        }
+                    }
+                }
+            </div>
+            <form action="/register" method="POST">
+                <label for="FirstName">First Name: </label>
+                <input type="text" name="FirstName" class="spacer" maxlength="100"><br>
+                <label for="LastName">Last Name: </label>
+                <input type="text" name="LastName" class="spacer" maxlength="100"><br>
+                <label for="Age">Age: </label>
+                <input type="text" name="Age" class="spacer" maxlength="3"><br>
+                <label for="EmailAddress">Email Address: </label>
+                <input type="text" name="EmailAddress" class="spacer" maxlength="250"><br>
+                <label for="Password">Password: </label>
+                <input type="password" name="Password" class="spacer" maxlength="250"><br><br>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+
+    </body>
+</html>

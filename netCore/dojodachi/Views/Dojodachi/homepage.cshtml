@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Index</title>
+    <!--In this context '~' refers to the wwwroot folder-->
+    <link rel="stylesheet" href="~/css/style.css"/> 
+  </head>
+  <body>
+    <p class="title">Admiral Ackbar: The Daycare Experience</p>
+    <div class="navbar">
+        <p class="navitem">Fullness: @ViewBag.fullness</p>
+        <p class="navitem">Happiness: @ViewBag.happiness</p>
+        <p class="navitem">Meals: @ViewBag.meals</p>
+        <p class="navitem">Energy: @ViewBag.energy</p>
+    </div>
+    <div class="box">
+      <img class="img" src="~/images/admiral.jpg" alt="Admiral Ackbar">
+      <p>@ViewBag.response</p>
+    </div>
+      
+      @if(@ViewBag.playState == 0)
+      {   
+      <div class="navbar">
+        <form class="navitem" action="/feed" method="post">
+          <input type="submit" value="Feed">
+        </form>
+        <form class="navitem" action="/play" method="post">
+          <input type="submit" value="Play">
+        </form>
+        <form class="navitem" action="/work" method="post">
+          <input type="submit" value="Work">
+        </form>
+        <form class="navitem" action="/Sleep" method="post">
+          <input type="submit" value="Sleep">
+        </form>
+      </div>
+      <form class="navbar fullreset centernavitem" action="/Clear" method="post">
+        <input type="submit" value="Reset Me">
+      </form>
+      }
+      else
+      {
+      <form class="navbar centernavitem" action="/Clear" method="post">
+        <input type="submit" value="Restart?">
+      </form>
+      }
+  </body>
+</html>
+

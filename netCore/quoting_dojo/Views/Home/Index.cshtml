@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        @{
+            ViewData["Title"] = "Add A Quote";
+        }
+        <link rel="stylesheet" href="~/css/site.css"/>
+    </head>
+    <body>
+        <div class="mainbox">
+            <h1>Welcome to QuotingDojo!</h1><br>
+            <div>
+                @{
+                    foreach(var error in ViewBag.errors)
+                    {
+                        //If there are any errors for a field...
+                        if(@error.Errors.Count > 0)
+                        {
+                            // We show the first error for that field
+                            <p id="red"><b>@error.Errors[0].ErrorMessage</b></p>
+                        }
+                    }<br>
+                }
+            </div>
+            <form action="/quotes" method="POST">
+                <label for="name">Your name: </label>
+                <input type="text" name="name" maxlength="100"><br>
+                <label for="quote">Your quote:</label>
+                <textarea id="quote_input" name="content" maxlength="250"></textarea><br><br>
+                <input type="submit" value="Add my quote!">
+            </form>
+            <form action="/quotes">
+                <br><input type="submit" value="Skip to quotes!">
+            </form>
+        </div>
+
+    </body>
+</html>

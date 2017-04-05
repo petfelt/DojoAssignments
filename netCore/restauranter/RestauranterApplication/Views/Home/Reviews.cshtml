@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        @{
+            ViewData["Title"] = "Reviews";
+        } @using RestauranterApplication.Models;
+        <meta charset='utf-8'>
+        <title>Index</title>
+        <!-- In this context '~' refers to the wwwroot folder-->
+        <link rel="stylesheet" href="~/css/style.css"/>
+    </head>
+    <body>
+        <div class="mainbody">
+            <h1>Reviews</h1>
+            @{
+                foreach(Review review in ViewBag.AllReviews)
+                {
+                <h4><b>Review For:</b> @review.restaurantName &nbsp; &nbsp; &nbsp; &nbsp; @review.stars star</h4>
+                <h4><b>Reviewer:</b> @review.reviewerName, @review.dateOfVisit.ToString("MMM dd, yyyy")</h4>
+                <h5 class="indent text_entered">@review.review</h5>
+                <p class="horiz_line"> </p>
+                // Horizontal line here.
+                }
+            }
+            <a href="/"><-- Create A New Review</a>
+            
+        </div>
+    </body>
+</html>

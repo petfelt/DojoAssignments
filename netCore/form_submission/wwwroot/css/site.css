@@ -1,0 +1,27 @@
+/*Write all of your CSS here*/
+body{
+    background: lightgrey;
+}
+
+.red{
+    color: crimson;
+}
+
+.sameline{
+    display: inline;
+}
+
+.mainbody{
+    margin: 30px;
+    margin-top: 70px;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 30px;
+    padding-top: 15px;
+    background: lightblue;
+    text-align: center;
+}
+
+.spacer{
+    margin-top: 6px;
+}

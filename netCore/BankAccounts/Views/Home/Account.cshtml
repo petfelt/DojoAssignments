@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        @{
+            ViewData["Title"] = "Transactions";
+        } @using BankAccounts.Models;
+        <meta charset='utf-8'>
+        <title>Index</title>
+        <!-- In this context '~' refers to the wwwroot folder-->
+        <link rel="stylesheet" href="~/css/style.css"/>
+    </head>
+    <body>
+        <div class="mainbody">
+            @{
+                foreach(var error in ViewBag.errors)
+                {
+                //If there are any errors for a field...
+                if(@error.Errors.Count > 0)
+                    {
+                    // We show the first error for that field
+                        <p class="red align_center"><b>@error.Errors[0].ErrorMessage</b></p>
+                    }
+                }
+                if(@ViewBag.values[0] != ""){
+                    <p class="red align_center"><b>@ViewBag.values[0]</b></p>
+                }
+            }
+            <form action="/Account/@ViewBag.MyUser.UserId" method="POST">
+                <h1 class="sameline spacer">Welcome, @ViewBag.MyUser.FirstName</h1>
+                <label class="sameline" for="Balance">Current Balance: </label>
+                <input class="sameline" type="text" name="Balance" value=@ViewBag.MyUser.Balance.ToString("$0.00") readonly>
+                <a class="sameline spacer" href="/Logout">Logout</a>
+                <br><label for="Amount">Deposit/Withdraw: </label>
+                <input type="number" name="Amount" value=0>
+                <input class="alignbutton" type="submit" value="Submit">
+            </form>
+            <table>
+                <tr>
+                <th>Amount</th>
+                <th>Date</th>
+                </tr>
+                @{
+                    if(ViewBag.MyUser.Transactions != null){
+                        foreach(Transaction T in ViewBag.MyUser.Transactions)
+                        {
+                        <tr>
+                        <td>@T.Amount.ToString("$0.00")</td>
+                        <td>@T.CreatedAt.ToString("MMM dd, yyyy")</td>
+                        </tr>
+                        }
+                    }
+                        <tr>
+                        <td>&nbsp;</td>
+                        <td></td>
+                        </tr>
+                }
+            </table>
+        </div>
+    </body>
+</html>

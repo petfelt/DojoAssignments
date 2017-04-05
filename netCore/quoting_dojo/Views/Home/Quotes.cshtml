@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        @{
+            ViewData["Title"] = "Quotes";
+        }
+        <link rel="stylesheet" href="~/css/site.css"/>
+    </head>
+    <body>
+        <div class="mainbody">
+            <h1>Here Are The Awesome Quotes!</h1><br>
+            @{DateTime dt = new DateTime();}
+            @foreach(Dictionary<string, object> dict in ViewBag.AllQuotes){
+                foreach(object list in dict){
+                    string str = list.ToString();
+                    if(str[1] == 'q'){
+                        <h3>"@str.Substring(8, str.Length-9)"</h3>
+                    } else if(str[1] == 'n'){
+                        <p class="sameline"> - @str.Substring(6, str.Length-7)</p>
+                    } else if(str[1] == 'c'){
+                        dt = Convert.ToDateTime((@str.Substring(11, str.Length-12)));
+                        str = dt.ToString("h:mm tt on MMMM d, yyyy.");
+                        <p class="sameline"> said this at @str</p><br><br>
+                    }
+                }
+                
+            }
+            <form action="/">
+                <input type="submit" value="Go back to adding!">
+            </form>
+        </div>
+
+    </body>
+</html>

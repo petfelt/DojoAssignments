@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        @{
+            ViewData["Title"] = "Add A Trail";
+        }
+        <link rel="stylesheet" href="~/css/site.css"/>
+    </head>
+    <body>
+        <div class="mainbody">
+            <div class="header">
+                <h1 class="sameline"><i><u>Add A New Trail</u></i></h1>
+                <h5 class="sameline header_indent"><a href="/"><u>Go Home</u></a></h5>
+            </div>
+            <div>
+                @{
+                    foreach(var error in ViewBag.errors)
+                    {
+                        //If there are any errors for a field...
+                        if(@error.Errors.Count > 0)
+                        {
+                            // We show the first error for that field
+                            <p class="red"><b>@error.Errors[0].ErrorMessage</b></p>
+                        }
+                    }
+                }
+            </div>
+
+            <form action="/AddTrail" method="POST">
+                <label for="Name">Trail Name: </label>
+                <input type="text" name="Name" class="spacer" maxlength="100" value=@Html.Raw(ViewBag.values[0].Replace(" ", "&nbsp;"))><br>
+                <label for="Description">Description: </label>
+                <textarea name="Description" class="textarea spacer" maxlength="250">@ViewBag.values[1]</textarea><br>
+                <label for="TrailLength">Trail Length: </label>
+                <input type="text" name="TrailLength" class="spacer" maxlength="250" value=@ViewBag.values[2]>
+                <label for="TrailLength"> Miles</label><br>
+                <label for="ElevationChange">Elevation Change: </label>
+                <input type="text" name="ElevationChange" class="spacer" maxlength="250" value=@ViewBag.values[3]>
+                <label for="ElevationChange"> Feet</label><br>
+                <label for="Longitude">Longitude & Latitude: </label>
+                <input type="text" name="Longitude" class="spacer sameline long_lat_boxes" maxlength="250" value=@ViewBag.values[4]>
+                <input type="text" name="Latitude" class="spacer indent sameline long_lat_boxes" maxlength="250" value=@ViewBag.values[5]><br>
+                <input type="submit" class="spacer2" value="Create Record!">
+            </form>
+        </div>
+
+    </body>
+</html>

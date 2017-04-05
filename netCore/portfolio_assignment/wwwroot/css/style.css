@@ -1,0 +1,77 @@
+.navbar {
+    display: inline-block;
+    border: 1px solid black;
+    border-radius: 2px;
+    background: lightgrey;
+    width: 90%;
+    height: 50px;
+    margin-left: 5%;
+}
+.navitem {
+    display: inline-block;
+    text-align: center;
+    padding-top: 15px;
+    width: 32%;
+}
+.navspacer {
+    position: absolute;
+    width: 1px;
+    height: 50px;
+    background: black;
+}
+
+.mainbody {
+    display: inline-block;
+    border: 1px solid black;
+    border-radius: 2px;
+    background: lightgrey;
+    width: 87%;
+    margin-left: 5%;
+    padding: 1.5%;
+    padding-top: 0px;
+    margin-top: 10px;
+}
+
+h2{
+    margin-left: 1em;
+}
+
+h3{
+    padding: 0px;
+    margin-bottom: -4px;
+    margin-top: 8px;
+    margin-left: 3.4em;
+}
+
+#myimg {
+    display: inline-block;
+    width: 128px;
+    height: 150.33px;
+    border: 2px solid black;
+    margin-left: 4em;
+}
+
+.imgs {
+    display: inline-block;
+    width: 300px;
+    height: 200px;
+    border: 2px solid black;
+    margin-left: 4em; 
+}
+
+p{
+    display: inline-block;
+    margin-left: 4em;
+    margin-right: 4em;
+}
+
+.myform{
+    margin-top: 5px;
+    margin-bottom: 10px;
+    margin-left: 5em;
+}
+
+.submitbutton{
+    margin-top: 5px;
+    margin-left: 8.6em;
+}

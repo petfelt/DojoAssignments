@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        @{
+            ViewData["Title"] = "The Wall";
+        }
+        <link rel="stylesheet" href="~/css/site.css"/>
+    </head>
+
+    <body>
+      <div class="mainbox">
+        <div class="header text_entered">
+          <h2 class="sameline header_text">CodingDojo Wall</h2>
+          <!--If we're signed in, we want to show our name at the top.-->
+          @{ int temp = 0;
+          foreach(Dictionary<string, object> user in @ViewBag.users){
+                if(user["id"].ToString() == @ViewBag.myID.ToString()){
+                    <p id="login_name" class="sameline align_right header_text">Hello, @user["FirstName"]!</p>
+                    temp++;
+                }
+            }
+            if(temp == 0){
+                <p id="login_name" class="sameline align_right header_text">Hello, User!</p>
+            }}
+          <form class="sameline">
+            <a href="/logout" class="sameline align_right">Logout</a>
+          </form>
+        </div>
+        <a class="horiz_line"></a>
+
+        <!--Errors-->
+        @{
+            foreach(var error in ViewBag.errors)
+            {
+                //If there are any errors for a field...
+                if(@error.Errors.Count > 0)
+                {
+                    // We show the first error for that field
+                    <p class="red align_center"><b>@error.Errors[0].ErrorMessage</b></p>
+                }
+            }
+        }
+        
+
+        <form action='/post_message' method='post'><p></p>
+          <h3>Post a message:</h3>
+          <textarea class="textarea" style="width:91.25%; max-width:91.25%; height: 100px;" rows="11" cols="50" maxlength="1000" name='message'></textarea><p></p>
+          <input class="align_button" type='submit' value='Post a message'>
+        </form>
+
+        <!-- DID: -->
+        <!-- Basically, you want to find all the posts, all the comments, and all the users, and throw them into ViewBags. -->
+        <!-- Then we want to call up each post/comment's attributes (title, name, etc.) -->
+        <!-- Make sure to make posts go from newest to oldest, but comments going from oldest to newest under each one. -->
+        <!-- Then we want to use our current email session compared to each message to make sure we can delete our own messages and such. -->
+
+
+        @{foreach(Dictionary<string, object> message in @ViewBag.messages){
+
+            // Messages
+            foreach(Dictionary<string, object> user in @ViewBag.users){
+                if(user["id"].ToString() == message["users_id"].ToString()){
+                    string created = String.Format("{0:MMMM d, yyyy, h:mm tt}", @message["createdAt"]);
+                    <h5 class="text_entered"><b>@user["FirstName"] @user["LastName"]</b> - @created</h5>
+                    <h4 class="indent">@message["Message"]</h4>
+                    if(user["id"].ToString() == @ViewBag.myID.ToString()){
+                        <form action= "delete_message" method='post'><p></p>
+                            <input type="hidden" name="message_id" value=@message["id"]>
+                            <input class="indent" type='submit' value='Delete this message'>
+                        </form>
+                    }     
+                }
+            }
+
+            // Comments
+            foreach(Dictionary<string, object> comment in @ViewBag.comments){
+                foreach(Dictionary<string, object> user in @ViewBag.users){
+
+                    if(message["id"].ToString() == comment["messages_id"].ToString()){
+                        if(user["id"].ToString() == comment["users_id"].ToString()){
+                            string created = String.Format("{0:MMMM d, yyyy, h:mm tt}", @comment["createdAt"]);
+                            <h6 class="text_entered indent spacer2"><b>@user["FirstName"] @user["LastName"]</b> - @created</h6>
+                            <h5 class="comment_indent">@comment["comment"]</h5>
+                        }
+                    }  
+                }
+            }
+
+            // Post comment form
+            <form class="comment_indent" action="/post_comment" method='post'><p></p>
+                <h4 class="spacer2">Post a comment:</h4>
+                <input type="hidden" name="message_id" value=@message["id"]>
+                <textarea class="textarea" rows="4" cols="50" maxlength="1000" name='comment'></textarea><p></p>
+                <input class="align_button" type='submit' value='Post a comment'>
+            </form>
+        }}
+      </div>
+    </body>
+</html>

@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        @{
+            ViewData["Title"] = "Customers";
+        } @using ECommerce.Models;
+        <meta charset='utf-8'>
+        <!-- In this context '~' refers to the wwwroot folder-->
+        <link rel="stylesheet" href="~/css/style.css"/>
+    </head>
+    <body>
+        <div class="mainbody">
+            <div>
+            <a href="/">Dashboard</a>
+            <a class="vert_line"></a>
+            <a href="/products">Products</a>
+            <a class="vert_line"></a>
+            <a href="/orders">Orders</a>
+            <a class="vert_line"></a>
+            <p class="sameline">Customers</p>
+            <a class="vert_line"></a>
+            <a href="/settings">Settings</a>
+            </div><br>
+            @{
+                foreach(var error in ViewBag.errors)
+                {
+                //If there are any errors for a field...
+                if(@error.Errors.Count > 0)
+                    {
+                        <p class="red align_center"><b>@error.Errors[0].ErrorMessage</b></p>
+                    }
+                }
+                if(@ViewBag.values[1] != ""){
+                    <p class="red align_center"><b>@ViewBag.values[1]</b></p>
+                }
+            }
+            <form action="/Customers" method="POST">
+                <h3><b><u>Add a new customer:</u></b></h3>
+                <label for="CustomerName">Customer Name: </label>
+                <input type="text" name="CustomerName" value=@ViewBag.values[0]>
+                <input class="alignbutton" type="submit" value="Add">
+            </form>
+            <table>
+                <tr>
+                <th>Customer Name</th>
+                <th>Created Date</th>
+                <th>Actions</th>
+                </tr>
+                @{
+                    if(ViewBag.allcustomers != null){
+                        foreach(Customer C in ViewBag.allcustomers)
+                        {
+                        <tr>
+                        <td>@C.CustomerName</td>
+                        <td>@C.CreatedAt.ToString("MMMM dd, yyyy")</td>
+                        <td><a href="/customers/delete/@C.CustomerId">Remove</a></td>
+                        </tr>
+                        }
+                    }
+                        <tr>
+                        <td>&nbsp;</td>
+                        <td></td>
+                        <td></td>
+                        </tr>
+                        <tr>
+                        <td>&nbsp;</td>
+                        <td></td>
+                        <td></td>
+                        </tr>
+                }
+            </table>
+        </div>
+    </body>
+</html>

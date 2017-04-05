@@ -1,0 +1,8 @@
+<h3 style="border: 2px solid black; text-align: center; margin-left: 40%; margin-right: 40%; padding: 5px;">The current time and date:</h3>
+@{System.DateTime dt = System.DateTime.Now;}
+@{string date = dt.ToString("MMM/dd/yyyy");}
+@{string time = dt.ToString("hh:mm tt");}
+<div style="border: 2px solid black; text-align: center; margin-left: 30%; margin-right: 30%;">
+    <h1 style="margin-bottom:-15px;">@date</h1>
+    <h1>@time</h1>
+</div>

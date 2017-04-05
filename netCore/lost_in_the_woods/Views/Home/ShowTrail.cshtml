@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        @{
+            ViewData["Title"] = ViewBag.trail.Name;
+        }
+        <link rel="stylesheet" href="~/css/site.css"/>
+    </head>
+    <body>
+        <div class="mainbody">
+            <div class="header">
+                <h1 class="sameline">@Html.Raw(ViewBag.trail.Name.Replace(" ", "&nbsp;"))</h1>
+                <h5 class="sameline header_indent"><a href="/"><u>Go Home</u></a></h5>
+            </div>
+            <div class="header">
+                <h3 class="indent"><b>Description:</b></h3>
+                <h4 class="comment_indent">@ViewBag.trail.Description</h4>
+                <h3 class="indent spacer2"><b>Trail Length:</b></h3>
+                <h4 class="comment_indent">@ViewBag.trail.TrailLength Miles</h4>
+                <h3 class="indent spacer2"><b>Elevation Change:</b></h3>
+                <h4 class="comment_indent">@ViewBag.trail.ElevationChange Feet</h4>
+                <p class="spacer2"></p>
+                
+                @{if(@ViewBag.trail.Longitude[0] == '-'){
+                <h4 class="indent spacer sameline"><b>Longitude:</b> @ViewBag.trail.Longitude° S</h4>
+                } else {
+                <h4 class="indent spacer sameline"><b>Longitude:</b> @ViewBag.trail.Longitude° N</h4>
+                }
+                if(@ViewBag.trail.Latitude[0] == '-'){
+                <h4 class="indent spacer sameline"><b>Latitude:</b> @ViewBag.trail.Latitude° E</h4>
+                } else {
+                <h4 class="indent spacer sameline"><b>Latitude:</b> @ViewBag.trail.Latitude° W</h4>
+                }}
+            </div>
+            
+            
+        </div>
+
+    </body>
+</html>

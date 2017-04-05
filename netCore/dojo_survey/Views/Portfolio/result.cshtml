@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>Result</title>
+         <!--In this context '~' refers to the wwwroot folder-->
+        <link rel="stylesheet" href="~/css/style.css"/>
+    </head>
+    <body>
+      <div class="mainbox">
+        <h1>Submitted Info</h1>
+        <p><b>Name:</b> @ViewBag.name</p>
+        <p><b>Location:</b> @ViewBag.location</p>
+        <p><b>Language:</b> @ViewBag.language</p>
+        <p><b>Comment:</b> @ViewBag.comment</p>
+        <form action='/'>
+            <input type='submit' value='Go Back'>
+        </form>
+      </div>
+    </body>
+</html>
