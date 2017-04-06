@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Survey Form</title>
+  </head>
+  <body>
+    <h1>Fill Me Out!</h1>
+    <br>
+    <form action='/result' method='post'>
+      Your Name: <input type='text' name='name'><br><br>
+      Dojo Location: <select name='location'>
+        <option value="Seattle">Seattle</option>
+        <option value="Mountain_View">Mountain View</option>
+        <option value="SanFransisco">San Fransisco</option>
+      </select><br><br>
+      Favorite Language: <select name='language'>
+        <option value="JavaScript">JavaScript</option>
+        <option value="C#">C#</option>
+        <option value="Python">Python</option>
+      </select><br><br>
+      Comment (optional): <textarea rows="4" cols="50" style="max-width: 350px; max-height: 100px;" name='comment'></textarea><br><br>
+    <input type='submit' value='Submit!'>
+    </form>
+  </body>
+</html>
