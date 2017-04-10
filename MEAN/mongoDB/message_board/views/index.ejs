@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Message Board</title>
+  </head>
+  <body>
+    <h1>Welcome To The Message Board!</h1>
+    <!-- Div for errors. -->
+    <div>
+      <% if (!(typeof errors == 'undefined')) { %>
+          <% for (i in errors) { %>
+            <h4> <%= errors[i].message %> <h4>
+          <% } %>
+      <% } %>
+    </div>
+    <!-- I am aware that this is really scrappy HTML code. I am much more capable than this. -->
+    <!-- Unfortunately, I felt lazier than I should this weekend... -->
+    <!-- So I didn't add bootstrap or do any of my own CSS formatting. -->
+    <!-- Sorry for the inconvenience and therefore hard to read HTML. -->
+    <hr><br>
+    <h3><u><i>Post A New Message:</i></u></h3>
+    <form action='/addpost' method='post'>
+      Name: <input type='text' name='name'><br><br>
+      Message: <textarea rows='4' cols='50' style='max-width: 350px; max-height: 100px;' name='text'></textarea>
+      <h5>Note: All posts must have a name longer than 4 characters and something typed in the message area.</h5>
+      <input type='submit' value='Add Post'>
+    </form><br><br><hr><br>
+    <% if(posts.length > 0){ %>
+      <h1>Messages:</h1>
+    <% } else { %>
+      <h1>Post A Message!</h1>
+      <p>Be the first to post a message on The Message Board by typing up a post above.</p>
+    <% } %>
+    <ul>
+      <% for (i=posts.length-1; i>=0; i--) { %>
+        <br><p>
+          <h3><i>Name: </i> <%= posts[i].name %></h3>
+          <h3><i>Message: </i> <%= posts[i].text %></h3>
+        </p>
+        <ul><h3><u>Comments:</u></h3><ul>
+          <% for (j=0; j<posts[i].comments.length; j++) { %>
+            <p>
+              <p><b><i>Name: </i></b> <%=posts[i].comments[j].name %></p>
+              <p><b><i>Comment: </i></b> <%=posts[i].comments[j].text %></p>
+            </p><br>
+          <% } %>
+          <p>
+            <h3><u>Post A Comment:</u></h3>
+            <form action='/addcomment/<%= posts[i]._id %>' method='post'>
+              Name: <input type='text' name='name'><br><br>
+              Comment: <textarea rows='4' cols='50' style='max-width: 350px; max-height: 100px;' name='text'></textarea>
+              <h5>Note: All comments must have a name longer than 4 characters and something typed in the comment area.</h5>
+              <input type='submit' value='Add Comment'>
+            </form>
+          </p>
+        </ul></ul>
+        <br><hr>
+      <% } %>
+      <p><i>"©" Peter Felton 2017. No Rights Reserved.</i></p>
+      <p><i>...There is no actual copyright, chill.</i></p>
+    </ul>
+  </body>
+</html>

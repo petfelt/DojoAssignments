@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Quotes From QuotingDojo</title>
+  </head>
+  <body>
+    <h1><b><u>Here are the awesome quotes!</b></u></h1>
+    <br>
+    <ul>
+      <% var options = {
+        weekday: "long", year: "numeric", month: "long",
+        day: "numeric", hour: "numeric", minute: "2-digit"
+      }; %>
+      <% for (i=quotes.length-1; i>=0; i--) { %>
+          <h3>"<%= quotes[i]['quote'] %>"</h3>
+
+          <p><i> - <%= quotes[i]['name'] %> on <%= quotes[i]['createdAt'].toLocaleTimeString("en-us", options); %></i></p><br>
+      <% } %>
+    </ul>
+    <button type="button" onclick="location.href='/';">Submit another quote!</button>
+  </body>
+</html>

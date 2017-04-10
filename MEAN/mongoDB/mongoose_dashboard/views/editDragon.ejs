@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Editing <%= dragon[0].name %> The Dragon</title>
+  </head>
+  <body>
+    <h1><b><u><%= dragon[0].name %>'s Personal Information:</b></u></h1>
+    <br>
+    <form action='/dragons/<%= dragon[0]._id%>' method="post">
+      Name: <input type='text' name='name' value='<%= dragon[0].name %>'><br><br>
+      Age: <input type='number' name='age' value='<%= dragon[0].age %>'><br><br>
+      <input type='submit' value='Update This Dragon!'>
+    </form><br>
+    <button type="button" onclick="location.href='/';">Go Back To The Roost!</button><br><br><br><br><br>
+    <form action='/dragons/destroy/<%= dragon[0]._id%>' method="post">
+      <input type='submit' value='Destroy This Dragon...'>
+    </form>
+  </body>
+</html>
