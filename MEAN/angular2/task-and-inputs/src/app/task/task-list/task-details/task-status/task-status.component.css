@@ -1,0 +1,9 @@
+div{
+  border: 2px crimson dashed;
+  padding: 10px;
+  margin: 5px;
+}
+
+.green{
+  border: 2px darkgreen dashed;
+}

@@ -1,0 +1,10 @@
+<div>
+  <h2>
+    Currency Formats
+  </h2>
+  <p>USD (no format): {{ value }}</p>
+  <p>USD (currency format): {{ value | currency }}</p>
+  <p>AUS (currency format): {{ value | currency:'AUS' }}</p>
+  <p>EUR (currency format with bool): {{ value | currency:'EUR':true }}</p>
+  <p>USD (currency format with bool & 2 assured decimals): {{ value | currency:'USD':true:'1.2-2' }}</p>
+</div>
