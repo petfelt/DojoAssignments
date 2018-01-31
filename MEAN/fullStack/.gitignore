@@ -1,4 +1,4 @@
-# spare backups
+# spare backups, demo projects, & duplicates
 /matt_felton
 /matt_felton_backup
 /matt_felton_superbackup4
@@ -11,3 +11,8 @@
 /derby-example-hello
 /heroku
 /rats_demo
+
+# Some of these files are ignored because they are backups.
+# Others are demo projects from the web that I wanted to take a look at.
+# Others are uploaded in other repositories on my github, and therefore would be duplicates.
+# Regardless, they are removed in order to take up less space.
