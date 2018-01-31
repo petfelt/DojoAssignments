@@ -1,2 +1,5 @@
 # dependencies
 /node_modules
+/mongoDB/message_board/node_modules
+/mongoDB/mongoose_dashboard/node_modules
+/mongoDB/quoting_dojo_redux/node_modules
