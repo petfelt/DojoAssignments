@@ -1,0 +1,23 @@
+From rhanna on Slack:
+
+mkdir projName
+npm init -y
+npm install -S express body-parser mongoose
+create client/static folders
+create server.js
+
+create server folder
+
+- config
+- controllers
+- models
+
+cd into static and ng new angularProj
+create components
+create services
+create classes
+
+nodemon server.js
+
+ng build -w
+mongod.exe

@@ -1,0 +1,24 @@
+<div class="custom-background">
+  <div class="container liner">
+    <h1 class="header-text">Photography</h1>
+  </div>
+  <div class="container">
+  	<div class="thumbs">
+  		<div *ngIf="!activeImage">This photographer has not <a routerLink="/upload">Uploaded</a> any photos yet!</div>
+      <div class="one-thumb col-xs-3" *ngFor="let data of imageDataArray; let i=index">
+        <cl-image
+          *ngIf="data.public_id" [public-id]="data.public_id" class="imgThumbnail" format="jpg"
+          (click)="updateActiveImage(i)"> <cl-transformation
+          height="150" width="150" crop="fill" radius="20" background="#37373d"></cl-transformation>
+        </cl-image>
+      </div>
+  	</div>
+  </div>
+  <div class="container">
+    <div class="col-md-9 screen">
+  		<cl-image *ngIf="activeImage" [public-id]="activeImage.public_id" class="imgThumbnail"
+  			format="jpg"> <cl-transformation height="500" crop="fill"
+  			></cl-transformation> </cl-image>
+  	</div>
+  </div>
+</div>

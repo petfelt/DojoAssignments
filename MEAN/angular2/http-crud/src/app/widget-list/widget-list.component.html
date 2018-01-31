@@ -1,0 +1,10 @@
+<h3>List of all Widgets</h3>
+<ul>
+  <li *ngFor="let widget of widgetService.widgets">
+    <span>{{ widget.name }}</span>
+    <button (click)="destroy(widget)">Delete</button>
+    <button (click)="edit(widget)">Edit</button>
+  </li>
+</ul>
+
+<app-widget-edit *ngIf="editEnabled" [widget]="editableWidget" ></app-widget-edit>

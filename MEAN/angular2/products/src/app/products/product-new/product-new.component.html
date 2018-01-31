@@ -1,0 +1,75 @@
+<div class="myBorder">
+  <h3>
+    New Product Creation
+  </h3>
+  <form (submit)="onSubmit(formData)" #formData="ngForm">
+    Name: <input
+    type="text"
+    name="name"
+    required
+    minlength="5"
+    maxlength="24"
+    [(ngModel)]="newProduct.name"
+    #name = "ngModel"
+    >
+    <div *ngIf="name.errors && (name.dirty || name.touched)">
+      <div [hidden]="!name.errors.required">
+        Name is required.
+      </div>
+      <div [hidden]="!name.errors.minlength">
+        Name must be at least 5 characters long.
+      </div>
+      <div [hidden]="!name.errors.maxlength">
+        Name cannot be more than 24 characters long.
+      </div>
+    </div>
+    Description: <input
+    type="text"
+    name="description"
+    required
+    minlength="5"
+    maxlength="30"
+    [(ngModel)]="newProduct.description"
+    #description = "ngModel"
+    >
+    <div *ngIf="description.errors && (description.dirty || description.touched)">
+      <div [hidden]="!description.errors.required">
+        Description is required.
+      </div>
+      <div [hidden]="!description.errors.minlength">
+        Description must be at least 5 characters long.
+      </div>
+      <div [hidden]="!description.errors.maxlength">
+        Description cannot be more than 24 characters long.
+      </div>
+    </div>
+    Price: <input
+    type="number"
+    name="price"
+    required
+    [(ngModel)]="newProduct.price"
+    #price = "ngModel"
+    >
+    <div *ngIf="price.errors && (price.dirty || price.touched)">
+      <div [hidden]="!price.errors.required">
+        A price is required.
+      </div>
+    </div>
+    Quantity: <input
+    type="number"
+    name="quantity"
+    required
+    [(ngModel)]="newProduct.quantity"
+    #quantity = "ngModel"
+    >
+    <div *ngIf="quantity.errors && (quantity.dirty || quantity.touched)">
+      <div [hidden]="!quantity.errors.required">
+        A quantity is required.
+      </div>
+    </div>
+    <input
+    type="submit"
+    [disabled]="!formData.form.valid"
+    >
+  </form>
+</div>

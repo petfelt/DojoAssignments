@@ -1,0 +1,204 @@
+From the MEAN creation demo on Monday:
+
+IMPORTANT:
+- Controllers: plural, models: singular.
+- Choose one sort of casing: camel case or snake case. Stick with it.
+
+INITIAL SETUP:
+
+// Make your project folder and install plugin pieces
+mkdir [ PROJECT NAME ]
+cd [ PROJECT NAME ]
+
+npm init -y
+npm install -S express body-parser mongoose
+
+ng new [ ANGULAR NAME ]
+
+mkdir server
+cd server
+mkdir config
+mkdir controllers
+mkdir models
+cd config
+
+touch mongoose.js:
+
+var mongoose = require("mongoose")
+var fs = require("fs")
+var path = require("path")
+
+mongoose.Promise = global.Promise
+mongoose.connect("mongodb://localhost/rats_demo")
+
+var models_path = path.join(__dirname, "./../models")
+
+fs.readdirSync(models_path).forEach(function(file){
+	if(file.indexOf(".js") >= 0){
+		require(path.join(models_path, file))
+	}
+})
+
+touch routes.js: (Includes example routes and controller name):
+
+var rats = require("./../controllers/rats.js")
+
+module.exports = function(app){
+	app.get("/rats", rats.get_all_rats)
+	app.post("/create", rats.create)
+	app.delete("/delete/:id", rats.delete)
+}
+
+cd ..
+cd controllers
+touch rats.js (whatever you wanna call it)
+cd ..
+cd models
+touch rat.js (whatever you wanna call it)
+cd ..
+cd ..
+touch server.js:
+
+var express = require("express");
+var path = require("path");
+
+var app = express()
+var bodyParser = require("body-parser");
+
+var PORT = 8000
+
+app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, "./rats-angular/dist")));
+app.use(express.static(path.join(__dirname, "./node_modules")));
+
+require("./server/config/mongoose.js")
+
+require("./server/config/routes.js")(app)
+
+app.listen(PORT, function(){
+  console.log('listening on port 8000')
+})
+
+BASIC IS NOW SET UP! From here, you ng g components, classes, etc.
+Also, you may want app.routes.ts
+
+TO LAUNCH:
+3 different terminals:
+
+sudo mongod
+nodemon server.js
+ng build -w
+
+
+
+sudo ln -s /etc/nginx/sites-available/dirtybomb_timer /etc/nginx/sites-enabled/dirtybomb_timer
+
+sudo ln -s /etc/nginx/sites-available/matt_felton /etc/nginx/sites-enabled/matt_felton
+
+
+
+
+
+DEPLOYMENT NOTES:
+16.04 ubuntu
+"sudo mkdir /var/www"   /var/www/ is already created, don't worry about that.
+
+RIGHT BEFORE PART 5:
+cd /var/www/{{project_name}}
+
+PART 5:
+step 3:
+sudo npm install express mongoose body-parser --save
+(Or save every time you npm install while making your project so you can just: sudo npm install and install all dependencies.)
+
+RIGHT BEFORE PART 6:
+// Added because you need ownership of files, need to install without sudo to avoid errors
+// while installing certain packages.
+
+// !!!! You may have to backtrack and reinstall other files that were installed with sudo.
+
+<<<<< NEW INSTRUCTIONS >>>>>
+cd /
+sudo chown -R ubuntu /usr/local/
+cd var/www/{{ project_name }}
+sudo chown -R ubuntu /var/www/{{ project_name }} / {{ angular_project_name }}
+cd {{ angular_project_name }}
+npm install
+npm install -g @angular/cli
+<<<<< END NEW INSTRUCTIONS >>>>>
+
+RIGHT BEFORE PART 6: (still):
+cd {{ angular_project_name }}
+sudo npm install
+sudo npm install -g @angular/cli
+sudo ng build
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6
+echo "deb [ arch=amd64,arm64 ] http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list
+
+continue as normal for 4 - 5.
+
+
+Part 6 step 6:
+cd /
+sudo mkdir data
+cd data
+sudo mkdir db
+cd /var/www/
+
+then try:
+sudo mongod
+If it works...
+sudo service mongod start
+
+pm2 stop 0
+pm2 restart 0
+pm2 list
+sudo service nginx reload && sudo service nginx restart
+
+
+WHEN ALL ELSE FAILS:
+go to:
+cd /home/ubuntu/.pm2/logs/
+ - Look at the logs. See what is missing.
+ - Errors are likely related to:
+    - installing something with sudo npm install that wants to be installed without sudo.
+      - you should be able to notice these from app.js pm2 error log.
+      - you need to change permissions here. look at new instructions above.
+    - mongod is still running from sudo service mongod start.
+      - sudo service mongo stop  —>  sudo pm2 start mongod 
+    - passport.js is a newer version that doesn’t like old code.
+      - ExtractJwt.fromAuthHeader()  ->  ExtractJwt.fromAuthHeaderWithScheme('jwt')
+
+Also:
+https://docs.npmjs.com/getting-started/fixing-npm-permissions  - for earlier permission problems.
+
+
+Having issues with routing?
+add this before your app.listen in app.js:
+app.get('/*', (req, res, next) => {
+  res.sendFile('index.html', {root: path.join(__dirname, 'public')});
+  // response.sendfile(__dirname + '/index.html');
+});
+// This is a catch all so all links get “processed” by angular.
+
+
+
+
+
+WEB INSTRUCTIONS:
+https://www.youtube.com/watch?v=uONz0lEWft0&index=1&list=PLillGF-RfqbZMNtaOXJQiDebNXjVapWPZ
+Lengths:
+12:54
+24:53
+15:22
+23:13
+21:12
+19:05
+11:41
+19:19
+23:25
+Total Time: 2:51:04
+
+Deployment to Heroku...
+16:20
+Total Time with this: 3:07:24

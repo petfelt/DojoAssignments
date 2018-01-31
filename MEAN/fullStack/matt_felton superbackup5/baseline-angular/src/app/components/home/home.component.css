@@ -1,0 +1,404 @@
+.spacer{
+  margin-left: 5px;
+}
+.btn-custom{
+  background-color: rgba(150,150,150,0.6);
+  color: white;
+  border: 1px solid;
+  border-color: white;
+  border-radius: 1px;
+  padding: 7px 12px 7px 12px;
+  font-size:1em;
+
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.btn-custom:hover {
+  background-color: rgba(150,150,150,1);
+  border-color: rgba(150,150,150,1);
+  border-radius: 2px;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.spacer2{
+  margin-top: 15px;
+}
+.relative{
+  position:relative;
+  width: 100%;
+  height: 300px;
+  margin-bottom: 15px;
+}
+
+.custom-background{
+
+}
+
+.absolute-title{
+  color: rgba(250,250,250,1);
+  opacity: 1;
+}
+.absolute-box{
+  position: absolute;
+  width: 100%;
+  z-index: 20;
+  margin: auto;
+}
+h1.absolute-header{
+  /*margin-top: 5px;*/
+  margin-bottom: 0px;
+  position:relative;
+  z-index: 20;
+  font-size: 3em;
+  /*font-size: 10vw;*/
+  text-shadow: 0 1px 2px rgba(0,0,0,.6);
+}
+.absolute-text{
+  position:relative;
+  z-index: 20;
+  font-size: 1.2em;
+  /*font-size: 2.9vw;*/
+  text-shadow: 0 1px 2px rgba(0,0,0,.6);
+}
+
+.overlap-title{
+  display: inline-block;
+  vertical-align: middle;
+  float: left;
+  margin-left: 25px;
+  margin-top: 83px;
+  font-size: 1.5em;
+  color: white;
+  text-shadow: 0 1px 2px rgba(0,0,0,.7);
+}
+.overlap-button{
+  display: inline-block;
+  vertical-align: middle;
+  float: right;
+  padding-right: 25px;
+  padding-top: 83px;
+}
+.overlap-button a{
+  /* Stop link from having link underline */
+  text-decoration: none;
+}
+.overlap-spacer{
+  margin-top: 15px;
+}
+
+.parallax-title {
+    /* The image used */
+    background-image: url("/assets/test_photo_matthew.jpg");
+
+    /* Set a specific height */
+    height: 115px;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.parallax-photo {
+    /* The image used */
+    background-image: url("/assets/art2.jpeg");
+
+    /* Set a specific height */
+    height: 200px;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    /* Show click pointer */
+    cursor: pointer;
+
+    /* Make opacity animations work. */
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    opacity: 1;
+}
+.parallax-photo:hover{
+  opacity: 0.8;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.parallax-photo:hover > .container > .overlap-button > .btn-custom {
+  background-color: rgba(150,150,150,1);
+  border-color: rgba(150,150,150,1);
+  border-radius: 2px;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.parallax-art {
+    /* The image used */
+    background-image: url("/assets/art3.jpeg");
+
+    /* Set a specific height */
+    height: 200px;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    /* Show click pointer */
+    cursor: pointer;
+
+    /* Make opacity animations work. */
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    opacity: 1;
+}
+.parallax-art:hover{
+  opacity: 0.8;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.parallax-art:hover > .container > .overlap-button > .btn-custom {
+  background-color: rgba(150,150,150,1);
+  border-color: rgba(150,150,150,1);
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.parallax-music {
+    /* The image used */
+    background-image: url("/assets/art4.jpeg");
+
+    /* Set a specific height */
+    height: 200px;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    /* Show click pointer */
+    cursor: pointer;
+
+    /* Make opacity animations work. */
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    opacity: 1;
+}
+.parallax-music:hover{
+  opacity: 0.8;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.parallax-music:hover > .container > .overlap-button > .btn-custom {
+  background-color: rgba(150,150,150,1);
+  border-color: rgba(150,150,150,1);
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.parallax-software {
+    /* The image used */
+    background-image: url("/assets/art5.jpeg");
+
+    /* Set a specific height */
+    height: 200px;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    /* Show click pointer */
+    cursor: pointer;
+
+    /* Make opacity animations work. */
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    opacity: 1;
+}
+.parallax-software:hover{
+  opacity: 0.8;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.parallax-software:hover > .container > .overlap-button > .btn-custom {
+  background-color: rgba(150,150,150,1);
+  border-color: rgba(150,150,150,1);
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+/* Carousel Code Stuff */
+.carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 100%;
+      margin: auto;
+  }
+
+.carousel-control{
+  opacity: 0.2;
+  -webkit-transition: opacity 0.5s ease;
+  -moz-transition: opacity 0.5s ease;
+  -ms-transition: opacity 0.5s ease;
+  -o-transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
+}
+.carousel-control:hover{
+  opacity: 1;
+  -webkit-transition: opacity 0.5s ease;
+  -moz-transition: opacity 0.5s ease;
+  -ms-transition: opacity 0.5s ease;
+  -o-transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
+}
+.carousel-caption a{
+  /* Stop link from having link underline */
+  text-decoration: none;
+}
+.carousel-caption {
+  margin-bottom: 20px;
+}
+
+
+.text-box{
+  margin-top: 28%;
+}
+.image-box{
+  /*width: 100%;
+  height: 150px;*/
+}
+.image{
+  max-width: 100%;
+  max-height: 100%;
+}
+.nopadding {
+   padding: 0 !important;
+   margin: 0 !important;
+}
+.lower-boxes{
+  width: 49%;
+  height: 150px;
+  display: inline-block;
+}
+
+
+.carousel-fade .carousel-inner .item {
+  opacity: 0;
+  transition-property: opacity;
+  .transition-duration: 2s;
+}
+
+.carousel-fade .carousel-inner .active {
+  opacity: 1;
+}
+
+.carousel-fade .carousel-inner .active.left,
+.carousel-fade .carousel-inner .active.right {
+  left: 0;
+  opacity: 0;
+  z-index: 1;
+}
+
+.carousel-fade .carousel-inner .next.left,
+.carousel-fade .carousel-inner .prev.right {
+  opacity: 1;
+}
+
+.carousel-fade .carousel-control {
+  z-index: 2;
+}
+
+/*#myCarousel:hover .absolute-title {
+  opacity: 0.2;
+
+  -webkit-transition: opacity 0.5s ease;
+  -moz-transition: opacity 0.5s ease;
+  -ms-transition: opacity 0.5s ease;
+  -o-transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
+}*/
+
+/*
+  WHAT IS NEW IN 3.3: "Added transforms to improve carousel performance in modern browsers."
+  Need to override the 3.3 new styles for modern browsers & apply opacity
+*/
+@media all and (transform-3d), (-webkit-transform-3d) {
+    .carousel-fade .carousel-inner > .item.next,
+    .carousel-fade .carousel-inner > .item.active.right {
+      opacity: 0;
+      -webkit-transform: translate3d(0, 0, 0);
+              transform: translate3d(0, 0, 0);
+    }
+    .carousel-fade .carousel-inner > .item.prev,
+    .carousel-fade .carousel-inner > .item.active.left {
+      opacity: 0;
+      -webkit-transform: translate3d(0, 0, 0);
+              transform: translate3d(0, 0, 0);
+    }
+    .carousel-fade .carousel-inner > .item.next.left,
+    .carousel-fade .carousel-inner > .item.prev.right,
+    .carousel-fade .carousel-inner > .item.active {
+      opacity: 1;
+      -webkit-transform: translate3d(0, 0, 0);
+              transform: translate3d(0, 0, 0);
+    }
+}
+
+/* Custom right click copyright stuff */
+/*.rightClickPanel {
+    opacity: 1;
+    z-index:1000;
+    position: absolute;
+    background-color:rgba(240,240,240,0.7);
+    border: 1px solid darkgrey;
+    border-radius: 5px;
+    padding: 7px 15px 0px 15px;
+    font-size: 1.4em;
+    display: block;
+    margin: 0;
+    list-style-type: none;
+    list-style: none;
+}*/

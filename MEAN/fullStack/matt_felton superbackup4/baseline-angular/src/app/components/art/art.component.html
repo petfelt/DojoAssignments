@@ -1,0 +1,66 @@
+<div class="custom-background">
+  <div class="container liner">
+    <h1 class="header-text">Art</h1>
+  </div>
+  <div class="container">
+      <div class="screen">
+        <a class="left carousel-control mouse-pointer arrows"
+        (click)="updateLeft()">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        </a>
+        <a class="right carousel-control mouse-pointer arrows"
+        (click)="updateRight()">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        </a>
+      <div class="col-xs-12" (mouseenter)="activeImage.isMouseOver = true"
+      (mouseleave)="activeImage.isMouseOver = false">
+        <div *ngIf="activeImage">
+          <div *ngIf="activeImage.context">
+            <h3 class="activeImageName" *ngIf="activeImage.isMouseOver">{{activeImage.context.custom.name}}</h3>
+          </div>
+          <cl-image *ngIf="!activeImage.isMouseOver" [public-id]="activeImage.public_id" class="imgThumbnail"
+          > <cl-transformation height="400" crop="fill"
+          ></cl-transformation> </cl-image>
+        		<cl-image *ngIf="activeImage.isMouseOver" [public-id]="activeImage.public_id" class="imgThumbnailBlur"
+            > <cl-transformation height="400" crop="fill"
+      			></cl-transformation> </cl-image>
+            <div *ngIf="activeImage.context">
+              <p class="activeImageCaption" *ngIf="activeImage.isMouseOver">{{activeImage.context.custom.caption}}</p>
+            </div>
+        </div>
+    	</div>
+    </div>
+  </div>
+
+  <div class="container bottom-space">
+        <p *ngIf="errorOccurred">No artwork has been added yet.</p>
+        <p *ngIf="photos.length === 0 | async">No artwork has been added yet.</p>
+          <div class="col-xs-4 one-thumb" *ngFor="let photo of photos | async; let i = index">
+            <div class="photo-box">
+
+            <!-- | orderBy:'version':true -->
+            <!-- <a clHref={{photo.public_id}} format="jpg" target="_blank"> -->
+                <cl-image
+                        public-id={{photo.public_id}}
+                        (mouseenter)="photo.isMouseOver = true"
+                        (mouseleave)="photo.isMouseOver = false"
+                        [attr.opacity]="photo.isMouseOver ? '50' : null"
+                        class="mouse-pointer"
+                        (click)="updateListLocation(i)"
+                ><cl-transformation
+                height="150" width="150" crop="fill" radius="20" background="#37373d"></cl-transformation>
+                </cl-image>
+                <!-- <h3 class="photo-title" *ngIf="photo.context">{{photo.context.custom.name}}</h3>
+                <p class="text-center" *ngIf="photo.context">{{photo.context.custom.caption}}</p> -->
+            <!-- </a> -->
+            </div>
+        </div>
+        <!-- <div class="col-xs-12">
+            If you want some text down here, make sure it has this class.
+        </div> -->
+  </div>
+</div>
+
+
+
+-->

@@ -1,0 +1,38 @@
+.my-drop-zone{
+  margin: 10px 0px 30px 0px;
+  border: dotted 3px lightgray;
+  padding: 70px 0px 70px 0px;
+}
+.nv-file-over{
+  border: dotted 3px red;
+} /* Default class applied to drop zones on over */
+
+.imgThumbnail{
+    padding: 4px;
+}
+
+.header-text{
+  display: inline;
+}
+
+.manage-text{
+  margin-left: 50px;
+}
+
+.liner{
+  margin-top: 0px;
+  border-bottom: 1px solid rgba(220,220,220,0.5);
+}
+
+.top-spacer{
+  margin-top: 50px;
+  width: 100%;
+}
+
+.bottom-spacer{
+  margin-bottom: 50px;
+}
+
+.form_line{
+  margin-bottom: 15px;
+}

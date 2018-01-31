@@ -1,0 +1,32 @@
+.header-text{
+	color: rgba(220,220,220,1);
+  font-size: 3em;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.liner{
+  margin-top: 0px;
+	margin-bottom: 20px;
+  border-bottom: 1px solid rgba(220,220,220,0.5);
+}
+.custom-background{
+  background-color: rgba(55,55,61,1);
+  padding-bottom: 60px;
+}
+.custom-background h2{
+  color: rgba(220,220,220,1);
+}
+
+.thumbs{
+	height: 100%;
+	width: 100%;
+	text-align: center;
+}
+.one-thumb{
+	width: 150px;
+	margin: 5px 5px 5px 5px;
+}
+
+.screen {
+	text-align: center;
+}

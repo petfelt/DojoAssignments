@@ -1,0 +1,171 @@
+<form (submit)="onSubmit(formData)" #formData="ngForm">
+  First Name: <input
+  type="text"
+  name="firstName"
+  required
+  minlength="2"
+  maxlength="200"
+  [(ngModel)]="newUser.firstName"
+  #firstName = "ngModel"
+  ><div *ngIf="firstName.errors && (firstName.dirty || firstName.touched)">
+    <p [hidden]="!firstName.errors.required">
+      Your first name is required.
+    </p>
+    <p [hidden]="!firstName.errors.minlength">
+      Your first name must be at least 2 characters long.
+    </p>
+    <p [hidden]="!firstName.errors.maxlength">
+      Your first name cannot be more than 200 characters long.
+    </p>
+  </div>
+  Last Name: <input
+  type="text"
+  name="lastName"
+  required
+  minlength="2"
+  maxlength="200"
+  [(ngModel)]="newUser.lastName"
+  #lastName = "ngModel"
+  ><div *ngIf="lastName.errors && (lastName.dirty || lastName.touched)">
+    <p [hidden]="!lastName.errors.required">
+      Your last name is required.
+    </p>
+    <p [hidden]="!lastName.errors.minlength">
+      Your last name must be at least 2 characters long.
+    </p>
+    <p [hidden]="!lastName.errors.maxlength">
+      Your last name cannot be more than 200 characters long.
+    </p>
+  </div>
+  Email: <input
+  type="text"
+  name="email"
+  required
+  minlength="5"
+  maxlength="400"
+  [(ngModel)]="newUser.email"
+  pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+  #email = "ngModel"
+  ><div *ngIf="email.errors && (email.dirty || email.touched)">
+    <p [hidden]="!email.errors.required">
+      Your email is required.
+    </p>
+    <p [hidden]="!email.errors.minlength">
+      Your email must be at least 5 characters long.
+    </p>
+    <p [hidden]="!email.errors.maxlength">
+      Your email cannot be more than 400 characters long.
+    </p>
+    <p [hidden]="!email.errors.pattern">
+      Your email must have the format of a valid email address.
+    </p>
+  </div>
+  Password: <input
+  type="password"
+  name="password"
+  required
+  minlength="8"
+  maxlength="120"
+  [(ngModel)]="newUser.password"
+  #password = "ngModel"
+  ><div *ngIf="password.errors && (password.dirty || password.touched)">
+    <p [hidden]="!password.errors.required">
+      Your password is required.
+    </p>
+    <p [hidden]="!password.errors.minlength">
+      Your password must be at least 8 characters long.
+    </p>
+    <p [hidden]="!confirmPassword.errors.validateEqual">
+      Your password must match your password confirmation.
+    </p>
+    <p [hidden]="!password.errors.maxlength">
+      Your password cannot be more than 120 characters long.
+    </p>
+  </div>
+  Confirm Password: <input
+  type="password"
+  name="confirmPassword"
+  required
+  maxlength="120"
+  [(ngModel)]="newUser.confirmPassword"
+  validateEqual="password"
+  #confirmPassword = "ngModel"
+  ><div *ngIf="confirmPassword.errors && (confirmPassword.dirty || confirmPassword.touched)">
+    <p [hidden]="!confirmPassword.errors.required">
+      A password confirmation is required.
+    </p>
+    <p [hidden]="!confirmPassword.errors.maxlength">
+      Your password confirmation cannot be more than 120 characters long.
+    </p>
+    <p [hidden]="confirmPassword.valid || (confirmPassword.pristine && !formData.submitted)">
+        Your password confirmation must match your password.
+    </p>
+  </div>
+  State: <select name="carlist">
+    <option value="AA">AA</option>
+    <option value="AP">AP</option>
+    <option value="AE">AE</option>
+    <option value="AL">AL</option>
+    <option value="AK">AK</option>
+    <option value="AS">AS</option>
+    <option value="AZ">AZ</option>
+    <option value="AR">AR</option>
+    <option value="CA">CA</option>
+    <option value="CO">CO</option>
+    <option value="CT">CT</option>
+    <option value="DE">DE</option>
+    <option value="DC">DC</option>
+    <option value="FL">FL</option>
+    <option value="GA">GA</option>
+    <option value="GU">GU</option>
+    <option value="HI">HI</option>
+    <option value="ID">ID</option>
+    <option value="IL">IL</option>
+	  <option value="IN">IN</option>
+	  <option value="IA">IA</option>
+	  <option value="KS">KS</option>
+    <option value="KY">KY</option>
+    <option value="LA">LA</option>
+    <option value="ME">ME</option>
+    <option value="MD">MD</option>
+    <option value="MA">MA</option>
+    <option value="MI">MI</option>
+    <option value="MN">MN</option>
+    <option value="MP">MP</option>
+    <option value="MS">MS</option>
+    <option value="MO">MO</option>
+    <option value="MT">MT</option>
+    <option value="NE">NE</option>
+    <option value="NV">NV</option>
+    <option value="NH">NH</option>
+    <option value="NJ">NJ</option>
+    <option value="NM">NM</option>
+    <option value="NY">NY</option>
+	  <option value="NC">NC</option>
+    <option value="ND">ND</option>
+    <option value="OH">OH</option>
+  	<option value="OK">OK</option>
+  	<option value="OR">OR</option>
+  	<option value="PA">PA</option>
+    <option value="PR">PR</option>
+  	<option value="RI">RI</option>
+  	<option value="SC">SC</option>
+  	<option value="SD">SD</option>
+  	<option value="TN">TN</option>
+  	<option value="TX">TX</option>
+    <option value="UM">UM</option>
+  	<option value="UT">UT</option>
+  	<option value="VT">VT</option>
+  	<option value="VA">VA</option>
+    <option value="VI">VI</option>
+  	<option value="WA">WA</option>
+  	<option value="WV">WV</option>
+  	<option value="WI">WI</option>
+  	<option value="WY">WY</option>
+  </select>
+  <input
+  type="submit"
+  [disabled]="!formData.form.valid"
+  >
+  <p class="finalShow" [hidden]="!formData.submitted">Your user, {{submittedUser[0]}} {{submittedUser[1]}}, was submitted successfully!</p>
+</form>

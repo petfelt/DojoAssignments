@@ -1,0 +1,50 @@
+<div>
+  <h3>
+    Make A New Note:
+  </h3>
+  <form (submit)="onSubmit(formData)" #formData="ngForm">
+    Title: <input
+    type="text"
+    name="title"
+    required
+    minlength="5"
+    maxlength="24"
+    [(ngModel)]="newNote.title"
+    #title = "ngModel"
+    >
+    <div *ngIf="title.errors && (title.dirty || title.touched)">
+      <div [hidden]="!title.errors.required">
+        Title is required.
+      </div>
+      <div [hidden]="!title.errors.minlength">
+        Title must be at least 5 characters long.
+      </div>
+      <div [hidden]="!title.errors.maxlength">
+        Title cannot be more than 24 characters long.
+      </div>
+    </div>
+    Note: <textarea
+    name="description"
+    required
+    minlength="10"
+    maxlength="240"
+    [(ngModel)]="newNote.description"
+    #description = "ngModel"
+    ></textarea>
+    <div *ngIf="description.errors && (description.dirty || description.touched)">
+      <div [hidden]="!description.errors.required">
+        Description is required.
+      </div>
+      <div [hidden]="!description.errors.minlength">
+        Description must be at least 10 characters long.
+      </div>
+      <div [hidden]="!description.errors.maxlength">
+        Description cannot be more than 240 characters long.
+      </div>
+    </div>
+    <input
+    type="submit"
+    [disabled]="!formData.form.valid"
+    >
+  </form>
+</div>

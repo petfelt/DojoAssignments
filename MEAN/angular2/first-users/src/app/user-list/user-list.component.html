@@ -1,0 +1,5 @@
+<ul>
+  <li *ngFor="let user of users">
+    <b>{{user.name}}</b> - this user was created on {{ user.date | date:'short' }}.
+  </li>
+</ul>

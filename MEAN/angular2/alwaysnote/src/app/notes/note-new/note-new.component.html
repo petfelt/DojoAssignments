@@ -1,0 +1,29 @@
+  <h3>
+    Create a New Note
+  </h3>
+  <form (submit)="onSubmit(formData)" #formData="ngForm" class="marginBot">
+    Note: <input
+    type="text"
+    name="note"
+    required
+    minlength="4"
+    maxlength="60"
+    [(ngModel)]="newNote.note"
+    #note = "ngModel"
+    >
+    <input
+    type="submit"
+    [disabled]="!formData.form.valid"
+    >
+    <div *ngIf="note.errors && (note.dirty || note.touched)">
+      <p [hidden]="!note.errors.required">
+        A note is required.
+      </p>
+      <p [hidden]="!note.errors.minlength">
+        Your note must be at least 4 characters long.
+      </p>
+      <p [hidden]="!note.errors.maxlength">
+        Your note cannot be more than 60 characters long.
+      </p>
+    </div>
+  </form>

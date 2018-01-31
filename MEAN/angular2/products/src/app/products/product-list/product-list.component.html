@@ -1,0 +1,25 @@
+<div>
+  <h3>
+    Product List
+  </h3>
+  <table>
+    <tr>
+      <th><b>Name</b></th>
+      <th><b>Description</b></th>
+      <th><b>Price</b></th>
+      <th><b>Quantity</b></th>
+      <th><b>Date Created</b></th>
+      <th><b>Date Updated</b></th>
+      <th><b>Actions</b></th>
+    </tr>
+    <tr *ngFor="let product of products">
+      <td>{{product.name}}</td>
+      <td>{{product.description}}</td>
+      <td>{{product.price | currency:'USD':true}}</td>
+      <td>{{product.quantity}}</td>
+      <td>{{product.dateCreated | date:'shortDate'}}</td>
+      <td>{{product.dateUpdated | date:'shortDate'}}</td>
+      <td><button (click)="clicked($event, product)">Delete</button></td>
+    </tr>
+  </table>
+</div>

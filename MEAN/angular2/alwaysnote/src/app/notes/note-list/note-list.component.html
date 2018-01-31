@@ -1,0 +1,52 @@
+  <h3>
+    List Of All Notes
+  </h3>
+  <table>
+    <tr>
+      <th><b>Id</b></th>
+      <th><b>Note</b></th>
+      <th><b>Date Created</b></th>
+      <th><b>Date Updated</b></th>
+      <th><b>Actions</b></th>
+    </tr>
+    <tr *ngFor="let note of notes">
+      <td>{{note.id}}</td>
+      <td>{{note.note}}</td>
+      <td>{{note.dateCreated | date:'shortDate'}}</td>
+      <td>{{note.dateUpdated | date:'shortDate'}}</td>
+      <td><button (click)="delete($event, note)">Delete</button><button (click)="edit($event, note)">Edit</button></td>
+    </tr>
+  </table><br>
+  <h4>
+    Edit Note
+  </h4>
+  <form (submit)="onSubmit(formData)" #formData="ngForm" class="editMe">
+    Note: <input
+    type="text"
+    name="note"
+    class="editMe"
+    required
+    minlength="4"
+    maxlength="60"
+    [(ngModel)]="editNote.note"
+    #note = "ngModel"
+
+    >
+    <input
+    type="submit"
+    [disabled]="!formData.form.valid"
+    >
+    <!-- Took out validations because more bugs than solved. -->
+    <!-- <div *ngIf="note.errors && (note.dirty || note.touched)">
+      <p [hidden]="!note.errors.required">
+        If you are editing a note, you need some text.
+      </p>
+      <p [hidden]="!note.errors.minlength">
+        Your edited note must be at least 4 characters long.
+      </p>
+      <p [hidden]="!note.errors.maxlength">
+        Your edited note cannot be more than 60 characters long.
+      </p>
+    </div> -->
+    <br><button (click)="cancel($event)">Cancel</button><br><br>
+  </form>

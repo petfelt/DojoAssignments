@@ -1,0 +1,7 @@
+{
+  "NODE_ENV": "development",
+  "PORT": 3000,
+  "MONGO_URL": "mongodb://localhost:27017/derby-demo",
+  "SESSION_SECRET": "677267b121c4246aac6d119c036cd80341b0cd8c",
+  "SESSION_COOKIE": "962e9293dd19634f9e5e7f5252aa52ee51c8359a"
+}

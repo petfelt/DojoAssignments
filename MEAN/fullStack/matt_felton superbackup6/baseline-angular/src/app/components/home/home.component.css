@@ -1,0 +1,207 @@
+.btn-custom{
+  background-color: rgba(150,150,150,0.6);
+  color: white;
+  border: 1px solid;
+  border-color: white;
+  border-radius: 1px;
+  padding: 7px 12px 7px 12px;
+  font-size:1em;
+
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.btn-custom:hover {
+  background-color: rgba(150,150,150,1);
+  border-color: rgba(150,150,150,1);
+  border-radius: 2px;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.absolute-title{
+  color: rgba(250,250,250,1);
+  opacity: 1;
+}
+.absolute-box{
+  position: absolute;
+  width: 100%;
+  z-index: 20;
+  margin: auto;
+}
+h1.absolute-header{
+  /*margin-top: 5px;*/
+  margin-bottom: 0px;
+  position:relative;
+  z-index: 20;
+  font-size: 3em;
+  /*font-size: 10vw;*/
+  text-shadow: 0 1px 2px rgba(0,0,0,.6);
+}
+.absolute-text{
+  position:relative;
+  z-index: 20;
+  font-size: 1.2em;
+  /*font-size: 2.9vw;*/
+  text-shadow: 0 1px 2px rgba(0,0,0,.6);
+}
+
+.overlap-title{
+  display: inline-block;
+  vertical-align: middle;
+  float: left;
+  margin-left: 25px;
+  margin-top: 83px;
+  font-size: 1.5em;
+  color: white;
+  text-shadow: 0 1px 2px rgba(0,0,0,.7);
+}
+.overlap-button{
+  display: inline-block;
+  vertical-align: middle;
+  float: right;
+  padding-right: 25px;
+  padding-top: 83px;
+}
+.overlap-button a{
+  /* Stop link from having link underline */
+  text-decoration: none;
+}
+.overlap-spacer{
+  margin-top: 15px;
+}
+
+.parallax-title {
+    /* The image used */
+    background-image: url("/assets/test_photo_matthew.jpg");
+
+    /* Set a specific height */
+    height: 115px;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.parallax {
+    /* Set a specific height */
+    height: 200px;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    /* Show click pointer */
+    cursor: pointer;
+
+    /* Make opacity animations work. */
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.parallax-photo {
+    /* The image used */
+    background-image: url("/assets/art2.jpeg");
+    opacity: 1;
+}
+.parallax-photo:hover{
+  opacity: 0.8;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.parallax-photo:hover > .container > .overlap-button > .btn-custom {
+  background-color: rgba(150,150,150,1);
+  border-color: rgba(150,150,150,1);
+  border-radius: 2px;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+
+.parallax-art {
+    /* The image used */
+    background-image: url("/assets/art3.jpeg");
+    opacity: 1;
+}
+.parallax-art:hover{
+  opacity: 0.8;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.parallax-art:hover > .container > .overlap-button > .btn-custom {
+  background-color: rgba(150,150,150,1);
+  border-color: rgba(150,150,150,1);
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+
+.parallax-music {
+    /* The image used */
+    background-image: url("/assets/art4.jpeg");
+    opacity: 1;
+}
+.parallax-music:hover{
+  opacity: 0.8;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.parallax-music:hover > .container > .overlap-button > .btn-custom {
+  background-color: rgba(150,150,150,1);
+  border-color: rgba(150,150,150,1);
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+
+.parallax-software {
+    /* The image used */
+    background-image: url("/assets/art5.jpeg");
+    opacity: 1;
+}
+.parallax-software:hover{
+  opacity: 0.8;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.parallax-software:hover > .container > .overlap-button > .btn-custom {
+  background-color: rgba(150,150,150,1);
+  border-color: rgba(150,150,150,1);
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}

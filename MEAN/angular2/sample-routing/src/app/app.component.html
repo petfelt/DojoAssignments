@@ -1,0 +1,24 @@
+<h1>
+  {{title}}
+</h1>
+<hr>
+<!-- // app.component.html (App Component's Template) -->
+<h3>Links</h3>
+<a [routerLink]="['/task']">Task</a><br>
+<a [routerLink]="['/task','public']">Task Public</a><br>
+<a [routerLink]="['/task','private']">Task Private</a><br><br>
+<a [routerLink]="['/note']">Note</a><br>
+<a [routerLink]="['/note','public']">Note Public</a><br>
+<a [routerLink]="['/note','private']">Note Private</a><br>
+
+<h3>Click Events</h3>
+<button routerLink="/task">Task</button><br>
+<button routerLink="/task/public">Task Public</button><br>
+<button routerLink="/task/private">Task Private</button><br><br>
+<button routerLink="/note">Note</button><br>
+<button routerLink="/note/public">Note Public</button><br>
+<button routerLink="/note/private">Note Private</button><br>
+
+
+<br><br><hr>
+<router-outlet></router-outlet>
