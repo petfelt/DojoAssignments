@@ -1,2 +1,2 @@
 # DojoAssignments
-This folder has a majority of my Coding Dojo Assignments in it.
+This folder contains a ton of test projects from varying languages.
